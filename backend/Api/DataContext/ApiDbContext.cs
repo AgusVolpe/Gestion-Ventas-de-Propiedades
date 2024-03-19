@@ -1,9 +1,10 @@
 ﻿using Api.Domain;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.DataContext
 {
-    public class ApiDbContext : DbContext
+    public class ApiDbContext : IdentityDbContext<Usuario>
     {
         public ApiDbContext(DbContextOptions dbContext) : base(dbContext)
         {

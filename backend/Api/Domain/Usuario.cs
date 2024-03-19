@@ -1,11 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Api.Domain;
 
 [Table("Usuario")]
-public class Usuario
+public class Usuario : IdentityUser
 {
-    public int Id { get; set; }
-    public required string NombreUsuario { get; set; }
-    public required string Password { get; set; }
+    public HashSet<Reserva> Reservas { get; set; } = [];
 }
