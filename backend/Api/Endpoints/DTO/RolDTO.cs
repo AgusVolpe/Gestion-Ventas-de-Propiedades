@@ -1,7 +1,7 @@
 ﻿namespace Api.Endpoints.DTO;
 
-public class UsuarioDTO
+public class RolDTO
 {
     public string Id { get; set; }
-    public string Email { get; set; }
+    public string Name { get; set; }
 }

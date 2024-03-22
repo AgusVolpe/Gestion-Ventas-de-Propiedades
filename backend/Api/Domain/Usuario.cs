@@ -7,4 +7,5 @@ namespace Api.Domain;
 public class Usuario : IdentityUser
 {
     public HashSet<Reserva> Reservas { get; set; } = [];
+    
 }

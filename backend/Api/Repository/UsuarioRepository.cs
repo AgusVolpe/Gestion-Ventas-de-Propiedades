@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Data.Common;
 using System.Data;
 using Mapster;
+using System;
 
 namespace Api.Repository;
 
@@ -17,10 +18,14 @@ public interface IUsuarioRepository
 {
     Task<List<Usuario>> GetUsuarios();
     Task<Usuario> GetUsuario(string idUsuario);
+    Task<List<RolesUsuarioDTO>> GetRoles();
+    Task<List<UsuarioRolesDTO>> GetUsersWithRoles();
     Task<bool> IsSingleUser(string userName);
     Task<Usuario> Registro(UsuarioRegistroDTO usuarioRegistroDTO);
     Task<UsuarioRespuestaLoginDTO> Login(UsuarioLoginDTO usuarioLoginDTO);
     string GeneradorToken(Usuario usuario, string roleUsuario, string secretKey);
+    void AddRole(string roleName);
+    void AddRoleToUser(string roleId, Usuario usuario);
 }
 
 public class UsuarioRepository(ApiDbContext context, 
@@ -31,15 +36,13 @@ public class UsuarioRepository(ApiDbContext context,
     private readonly string claveSecreta = config["JWT:Key"] ?? throw new Exception("No se encontro la clave secreta");
     public async Task<List<Usuario>> GetUsuarios()
     {
-        var usuarios = await context.Usuarios.Include(u => u.Reservas).ToListAsync();
-        //var usuarios = await context.Usuarios.ToListAsync();
+        var usuarios = await context.Usuarios.Include(u => u.Reservas).ThenInclude(r => r.Producto).ToListAsync();
         return usuarios;
     }
     
     public async Task<Usuario> GetUsuario(string idUsuario)
     {
-        //var usuario = await context.Usuarios.Include(u => u.Reservas).FirstOrDefaultAsync(u => u.Id == idUsuario);
-        var usuario = await context.Usuarios.FirstOrDefaultAsync(u => u.Id == idUsuario);
+        var usuario = await context.Usuarios.Include(u => u.Reservas).ThenInclude(r => r.Producto).FirstOrDefaultAsync(u => u.Id == idUsuario);
         return usuario;
     }
 
@@ -151,5 +154,70 @@ public class UsuarioRepository(ApiDbContext context,
         var tokenCreated = tokenHandler.CreateToken(tokenInformation);
 
         return tokenHandler.WriteToken(tokenCreated);
+    }
+
+    public async Task<List<RolesUsuarioDTO>> GetRoles()
+    {
+        var roles = await context.Roles.ToListAsync();
+
+        var result = new List<RolesUsuarioDTO>();
+
+        foreach (var rol in roles)
+        {
+            var usuarios = await userManager.GetUsersInRoleAsync(rol.Name);
+            var usuariosDTO = usuarios.Select(u => new UsuarioDTO { Id = u.Id, Email = u.Email }).ToList();
+
+            result.Add(new RolesUsuarioDTO
+            {
+                Id = rol.Id,
+                Name = rol.Name,
+                Usuarios = usuariosDTO
+            });
+        }
+
+        return result;
+    }
+
+    public async Task<List<UsuarioRolesDTO>> GetUsersWithRoles()
+    {
+        var usuarios = await context.Usuarios.ToListAsync();
+
+        var result = new List<UsuarioRolesDTO>();
+        foreach (var usuario in usuarios)
+        {
+            var rols = new List<RolDTO>();
+            var roles = await userManager.GetRolesAsync(usuario);
+            foreach (var role in roles)
+            {
+                var rol = await roleManager.Roles.FirstOrDefaultAsync(r => r.Name == role);
+                rols.Add(new RolDTO
+                {
+                    Id = rol.Id,
+                    Name = rol.Name
+                });
+            }
+
+            result.Add(new UsuarioRolesDTO
+            {
+                Id = usuario.Id,
+                Email = usuario.Email,
+                Roles = rols
+            });
+        }
+
+        return result;
+    }
+
+    public async void AddRole(string roleName)
+    {
+        await roleManager.CreateAsync(new IdentityRole { Name = roleName });
+    }
+
+    public async void AddRoleToUser(string roleId, Usuario usuario)
+    {
+        var rol = await roleManager.FindByIdAsync(roleId);
+        if (rol is null)
+            throw new Exception("Rol no encontraado");
+        await userManager.AddToRoleAsync(usuario,rol.Name);
     }
 }
