@@ -1,0 +1,8 @@
+.reservas-title {
+    text-align: center;
+}
+
+.grafico{
+    display: flex; 
+    justify-content: center;
+}

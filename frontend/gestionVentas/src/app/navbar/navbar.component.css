@@ -1,0 +1,17 @@
+.demo-button {
+    margin-left: 8px;
+    margin-top: 10px;
+    display: inline;
+    float: right;
+}
+
+.menu-icon{
+    margin-left: 8px;
+    margin-top:6px;
+}
+
+.demo-title {
+    margin-left: 8px;
+    margin-top: 12px;
+    float: left;
+}

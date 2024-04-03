@@ -1,0 +1,15 @@
+<mat-toolbar *ngIf="isLoggedIn" class="demo-button">
+    <span class="demo-title">{{title}}</span>
+    <!-- <button mat-icon-button class="menu-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button> -->
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="redirectReservas()">Reservas</button>
+        <button mat-menu-item (click)="redirectProductos()">Productos</button>
+        <button mat-menu-item (click)="redirectReportes()">Reporte de Ventas</button>
+    </mat-menu>
+    <button mat-raised-button (click)="logout()" class="demo-button">DESLOGUEAR</button>
+</mat-toolbar>

@@ -1,0 +1,76 @@
+<h2 class="productos-title">{{title}}</h2>
+
+<div class="demo-button-container">
+    <button 
+        mat-raised-button 
+        (click)="addData()" 
+        class="demo-button">
+      Agregar Propiedad
+    </button>
+</div>
+
+<table mat-table [dataSource]="productos" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="codigo">
+      <th mat-header-cell *matHeaderCellDef> Codigo </th>
+      <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="barrio">
+      <th mat-header-cell *matHeaderCellDef> Barrio </th>
+      <td mat-cell *matCellDef="let element"> {{element.barrio}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="precio">
+      <th mat-header-cell *matHeaderCellDef> Precio </th>
+      <td mat-cell *matCellDef="let element"> {{element.precio}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="estado"> 
+      <th mat-header-cell *matHeaderCellDef> Estado </th>
+      <td mat-cell *matCellDef="let element"> {{estadoSegunNumero(element.estado)}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="urlImagen"> 
+      <th mat-header-cell *matHeaderCellDef> Imagen </th>
+      <td mat-cell *matCellDef="let element"> <img src="{{element.urlImagen}}" width="300 px"> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="opciones"> 
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element"> 
+        <div class="demo-button-container">
+            <button 
+                mat-raised-button 
+                (click)="updateData()" 
+                class="demo-button">
+            Actualizar Propiedad
+            </button>
+            <button
+                mat-raised-button
+                color="warn"
+                (click)="removeData(element.id)"
+                class="demo-button">
+            Eliminar Propiedad
+            </button>
+        </div>
+       </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+  </table>

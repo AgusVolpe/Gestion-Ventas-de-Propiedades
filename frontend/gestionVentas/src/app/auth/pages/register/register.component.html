@@ -1,0 +1,58 @@
+<h2 class="login-title">Registro</h2>
+
+<form [formGroup]="registerForm" (ngSubmit)="register()" class="login-form">
+  <mat-form-field class="mat-form-field">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      formControlName="email"
+      placeholder="Ingrese email"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="mat-form-field">
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      type="password"
+      formControlName="password"
+      placeholder="Ingrese contraseña"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="mat-form-field">
+    <mat-label>Rol</mat-label>
+    <!-- <select matNativeControl  >
+      <option value="Administrador">Administrador</option>
+      <option value="Comerciante">Comerciante</option>
+      <option value="Vendedor">Vendedor</option>
+    </select> -->
+    <mat-select formControlName="role">
+      <mat-option *ngFor="let rol of roles" [value]="rol.name">
+        {{rol.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- <mat-form-field>
+    <mat-label>Rol</mat-label>
+    <mat-select [(ngModel)]="selectedValue" formControlName="role">
+      @for (rol of roles; track rol) {
+      <mat-option [value]="rol.name">{{ rol.name }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field> -->
+
+  <hr />
+
+  <div class="button-container">
+    <button type="submit" class="button button-submit">Registrar</button>
+
+    <a routerLink="/auth/login" class="button button-go-to-login">
+      Ir a inicio de sesion
+    </a>
+  </div>
+</form>
+
+<br />
+<hr />
