@@ -72,7 +72,9 @@ public class ReservaRepository(ApiDbContext context) : IReservaRepository
             if (reserva is null)
                 throw new Exception($"El producto con Id {idReserva} no existe");
 
+            var producto = await context.Productos.FirstOrDefaultAsync(r => r.Id == reserva.ProductoId);
             context.Reservas.Remove(reserva);
+            producto.Estado = EstadoProducto.Disponible;
 
             await context.SaveChangesAsync();
         }
@@ -129,17 +131,18 @@ public class ReservaRepository(ApiDbContext context) : IReservaRepository
     {
         bool resultado = false;
         bool isUnique = false;
-        var reservas = await context.Reservas.Where(r => r.Estado != EstadoReserva.Aprobada).Include(r => r.Producto).ToListAsync();
+        var reservas = await context.Reservas.Where(r => r.Estado == EstadoReserva.Ingresada && r.Producto.Estado == EstadoProducto.Disponible).Include(r => r.Producto).ToListAsync();
 
-        var productosCount = await context.Productos.CountAsync(p => p.Barrio == barrio && p.Estado == EstadoProducto.Disponible);
+        //var productosCount = await context.Productos.CountAsync(p => p.Barrio == barrio && p.Estado == EstadoProducto.Disponible);
 
-        if (productosCount == 1)
-            isUnique = true;
+        //if (productosCount == 1)
+        //    isUnique = true;
 
         foreach (var reserva in reservas)
         {
             bool condicion = ((reserva.Producto.Barrio == barrio && reserva.Producto.Precio < 100000) ||
-                           (isUnique));
+                           (reserva.Producto.Barrio == barrio && reserva.Producto.Estado == EstadoProducto.Disponible));
+                           //(isUnique));
             if (condicion)
             {
                 reserva.Estado = EstadoReserva.Aprobada;

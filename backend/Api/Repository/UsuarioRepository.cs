@@ -20,9 +20,10 @@ public interface IUsuarioRepository
     Task<Usuario> GetUsuario(string idUsuario);
     Task<List<RolesUsuarioDTO>> GetRoles();
     Task<List<UsuarioRolesDTO>> GetUsersWithRoles();
+    Task<List<Usuario>> GetVendedores();
     Task<bool> IsSingleUser(string userName);
     Task<Usuario> Registro(UsuarioRegistroDTO usuarioRegistroDTO);
-    Task<UsuarioRespuestaLoginDTO> Login(UsuarioLoginDTO usuarioLoginDTO);
+    Task<string> Login(UsuarioLoginDTO usuarioLoginDTO);
     string GeneradorToken(Usuario usuario, string roleUsuario, string secretKey);
     void AddRole(string roleName);
     void AddRoleToUser(string roleId, Usuario usuario);
@@ -56,7 +57,7 @@ public class UsuarioRepository(ApiDbContext context,
         return false;
     }
 
-    public async Task<UsuarioRespuestaLoginDTO> Login(UsuarioLoginDTO usuarioLoginDTO)
+    public async Task<string> Login(UsuarioLoginDTO usuarioLoginDTO)
     {
         var usuarioEncontrado = await context.Usuarios.FirstOrDefaultAsync(
                                             u => u.NormalizedEmail == usuarioLoginDTO.Email.ToUpper());
@@ -77,12 +78,7 @@ public class UsuarioRepository(ApiDbContext context,
 
         string token = GeneradorToken(usuarioEncontrado, roleUser, claveSecreta);
 
-        var usuarioRespuestaLoginDTO = new UsuarioRespuestaLoginDTO()
-        {
-            Usuario = usuarioEncontrado.Adapt<UsuarioDTO>(),
-            Token = token
-        };
-        return usuarioRespuestaLoginDTO;
+        return token;
     }
 
     public async Task<Usuario> Registro(UsuarioRegistroDTO usuarioRegistroDTO)
@@ -219,5 +215,12 @@ public class UsuarioRepository(ApiDbContext context,
         if (rol is null)
             throw new Exception("Rol no encontraado");
         await userManager.AddToRoleAsync(usuario,rol.Name);
+    }
+
+    public async Task<List<Usuario>> GetVendedores()
+    {
+
+        var usuarios = await userManager.GetUsersInRoleAsync("Vendedor");
+        return usuarios.ToList();
     }
 }

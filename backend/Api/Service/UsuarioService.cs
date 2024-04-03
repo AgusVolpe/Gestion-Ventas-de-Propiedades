@@ -12,8 +12,9 @@ public interface IUsuarioService
     Task<UsuarioReservasDTO> GetUsuario(string idUsuario);
     Task<List<RolesUsuarioDTO>> GetRoles();
     Task<List<UsuarioRolesDTO>> GetUsersWithRoles();
+    Task<List<UsuarioReporteDTO>> GetReporte();
     Task<UsuarioDTO> Registro(UsuarioRegistroDTO usuarioRegistroDTO);
-    Task<UsuarioRespuestaLoginDTO> Login(UsuarioLoginDTO usuarioLoginDTO);
+    Task<string> Login(UsuarioLoginDTO usuarioLoginDTO);
     void CreateRole(string roleName);
     void AddRoleToUser(string roleId, string userId);
 }
@@ -33,6 +34,27 @@ public class UsuarioService(IUsuarioRepository usuarioRepository) : IUsuarioServ
     public void CreateRole(string roleName)
     {
         usuarioRepository.AddRole(roleName);
+    }
+
+    public async Task<List<UsuarioReporteDTO>> GetReporte()
+    {
+        var usuarios = await usuarioRepository.GetVendedores();
+        var ventas = 0;
+        var usuariosReporte = new List<UsuarioReporteDTO>();
+        foreach (var usuario in usuarios)
+        {
+            ventas = 0;
+            var reservas = usuarioRepository.GetUsuario(usuario.Id).Result.Reservas.ToList();
+            foreach (var reserva in reservas)
+            {
+                if(reserva.Producto.Estado == EstadoProducto.Vendido)
+                {
+                    ventas++;
+                }
+            }
+            usuariosReporte.Add(new UsuarioReporteDTO { Name = usuario.Email, Value = ventas });
+        }
+        return usuariosReporte;
     }
 
     public Task<List<RolesUsuarioDTO>> GetRoles()
@@ -61,7 +83,7 @@ public class UsuarioService(IUsuarioRepository usuarioRepository) : IUsuarioServ
         return usuariosDTO;
     }
 
-    public async Task<UsuarioRespuestaLoginDTO> Login(UsuarioLoginDTO usuarioLoginDTO)
+    public async Task<string> Login(UsuarioLoginDTO usuarioLoginDTO)
     {
         return await usuarioRepository.Login(usuarioLoginDTO);
     }
