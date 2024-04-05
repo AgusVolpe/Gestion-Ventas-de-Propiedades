@@ -1,15 +1,15 @@
-<mat-toolbar *ngIf="isLoggedIn" class="demo-button">
-    <span class="demo-title">{{title}}</span>
-    <!-- <button mat-icon-button class="menu-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button> -->
+<mat-toolbar *ngIf="isLoggedIn" style="background-color: #0a0089;">
+    <span class="demo-title" style="color: white;">{{title}}</span>
     <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-icon">
         <mat-icon>menu</mat-icon>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="redirectReservas()">Reservas</button>
+            <button mat-menu-item (click)="redirectProductos()">Productos</button>
+            @if(getRole() == "Comercial" || getRole() == "Admin"){
+                <button mat-menu-item (click)="redirectReportes()">Reporte de Ventas</button>
+            }
+        </mat-menu>
     </button>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="redirectReservas()">Reservas</button>
-        <button mat-menu-item (click)="redirectProductos()">Productos</button>
-        <button mat-menu-item (click)="redirectReportes()">Reporte de Ventas</button>
-    </mat-menu>
-    <button mat-raised-button (click)="logout()" class="demo-button">DESLOGUEAR</button>
+    <span class="example-spacer"></span>
+    <button mat-button (click)="logout()" class="menu-icon">DESLOGUEAR</button>
 </mat-toolbar>

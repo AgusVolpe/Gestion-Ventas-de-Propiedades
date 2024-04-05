@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalReservaComponent } from './modal-reserva/modal-reserva.component'; 
 import { AuthService } from '../auth/auth.service';
+import { EstadoReserva } from './interface/estadoReserva.enum';
 
 @Component({
   selector: 'app-reservas',
@@ -28,6 +29,8 @@ export class ReservasComponent implements OnInit, OnDestroy{
   private authService = inject(AuthService);
   reservas: Reserva[] = [];
   reserva!: Reserva;
+  estado!: EstadoReserva;
+  columnsToDisplay: string[] = ['id', 'producto', 'usuario', 'nombreCliente', 'estado', 'opciones'];
 
   constructor(public dialog: MatDialog) { }
   
@@ -41,52 +44,8 @@ export class ReservasComponent implements OnInit, OnDestroy{
   
   ngOnDestroy(): void {
     this.subscription$.unsubscribe();
-    console.log('Suscripcion eliminada');
   }
-
-  columnsToDisplay: string[] = ['id', 'producto', 'usuario', 'nombreCliente', 'estado', 'opciones'];
-  columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
-
-  getReservas(): void{
-    this.reservasService.getReservas().subscribe({
-      next: (reservas) => {
-        this.reservas = reservas;
-        console.log("reservas", this.reservas) 
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-  }
-
-  abrirModal():void {
-    const dialogRef = this.dialog.open(ModalReservaComponent, {
-      width: '350px'
-    });
-
-    // const dialogRef = this.dialog.open(ModalReservaComponent, {
-    //   reserva: {Barrio: String, idProducto: String, idUsuario: String, nombreCliente: this.reserva.nombreCliente}
-    // });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialogo cerrado: Resultado = ${result}`);
-      //this.reserva = result;
-    });
-  }
-
-  //addData(reserva: Reserva) {
-  addData() {
-
-  }
-
-  updateData() {
-  }
-
-  removeData(id: number): void {
-    this.reservasService.removeReserva(id).subscribe();
-    console.log('reserva eliminada');
-  }
-
+  
   estadoSegunNumero(estado: number): string | null {
     switch (estado) {
       case 0:
@@ -105,4 +64,47 @@ export class ReservasComponent implements OnInit, OnDestroy{
   getRole(){
     return this.authService.getRoleUsuario();
   }
+
+  getReservas(): void{
+    this.reservasService.getReservas().subscribe({
+      next: (reservas) => {
+        this.reservas = reservas;
+        console.log("reservas", this.reservas) 
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  abrirModal(id: any):void {
+    const dialogRef = this.dialog.open(ModalReservaComponent, {
+      width: '350px',
+      data:{
+        id: id
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialogo cerrado: Resultado = ${result}`);
+      //this.reserva = result;
+    });
+  }
+
+  addData() {
+    this.abrirModal('');
+  }
+  
+  updateData(id: number) {
+    this.abrirModal(id);
+  }
+
+  cancelarReserva(id:any){
+    this.reservasService.updateReserva(id, EstadoReserva.cancelada).subscribe();
+  }
+
+  removeData(id: number): void {
+    this.reservasService.removeReserva(id).subscribe();
+  }
+  
+
 }

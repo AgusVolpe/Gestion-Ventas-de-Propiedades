@@ -1,44 +1,56 @@
 @if(getRole() == "Vendedor"){
     <h2 mat-dialog-title class="mat-dialog-title">Agregar Reserva</h2>
-    <mat-dialog-content>
-        <mat-form-field class="mat-form-field">
-            <mat-label>Barrio</mat-label>
-            <input placeholder="Barrio" matInput [(ngModel)]="barrioInput">
-        </mat-form-field>
-        <form [formGroup]="reactiveForm" (ngSubmit)="guardarReserva()">
-            <mat-form-field class="mat-form-field">
-                <mat-label>Id Producto</mat-label>
-                <input placeholder="Id Producto" matInput formControlName="idProducto">
-            </mat-form-field>
-            <mat-form-field class="mat-form-field">
-                <mat-label>Nombre Cliente</mat-label>
-                <input placeholder="Nombre Cliente" matInput formControlName="nombreCliente">
-            </mat-form-field>
+    @if(negar){
+        <mat-dialog-content>
+            <p>
+                No es posible agregar una nueva reserva, ya que usted alcanzo el limite de 3 reservas en estado "Ingresada".
+            </p>
             <mat-dialog-actions class="demo-button">
-                <button mat-raised-button type="submit" cdkFocusInitial>Crear</button>
-                <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
+                <button mat-raised-button color="warn" mat-dialog-close>Cerrar</button>
             </mat-dialog-actions>
-        </form>
-    </mat-dialog-content>
+        </mat-dialog-content>
+    }@else{
+        <mat-dialog-content>
+            <mat-form-field class="mat-form-field">
+                <mat-label>Barrio</mat-label>
+                <input placeholder="Barrio" matInput [(ngModel)]="barrioInput">
+            </mat-form-field>
+            <form [formGroup]="dialogForm" (ngSubmit)="guardarReserva()">
+                <mat-form-field class="mat-form-field">
+                    <mat-label>Productos Disponibles</mat-label>
+                    <mat-select formControlName="productoId">
+                      <mat-option *ngFor="let producto of productos" [value]="producto.id">
+                        {{producto.codigo}} | {{producto.barrio}} | ${{producto.precio}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="mat-form-field">
+                    <mat-label>Nombre Cliente</mat-label>
+                    <input placeholder="Nombre Cliente" matInput formControlName="nombreCliente">
+                </mat-form-field>
+                <mat-dialog-actions class="demo-button">
+                    <button mat-raised-button type="submit" cdkFocusInitial>Guardar</button>
+                    <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
+                </mat-dialog-actions>
+            </form>
+        </mat-dialog-content>
+    }
 }
 
 @if(getRole() == "Comercial"){
-    <h2 mat-dialog-title class="mat-dialog-title">Atualizar Estado Reserva</h2>
-    
-    <mat-dialog-content>
-        <form [formGroup]="reactiveForm" (ngSubmit)="actualizarEstado()">
-            <mat-form-field class="mat-form-field">
-                <mat-label>Rol</mat-label>
-                <select matNativeControl [(ngModel)]="estado">
-                <option value="Aprobada">Aprobada</option>
-                <option value="Rechazada">Rechazada</option>
-                </select>
-            </mat-form-field>
-            <mat-dialog-actions class="demo-button">
-                <button mat-raised-button type="submit" cdkFocusInitial>Actualizar</button>
-                <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
-            </mat-dialog-actions>
-        </form>
+    <h2 mat-dialog-title class="mat-dialog-title">Actualizar Estado Reserva</h2>
+    <mat-dialog-content >
+        <mat-form-field class="mat-form-field">
+            <mat-label>Estado</mat-label>
+            <mat-select [(ngModel)]="estado" required>
+                <mat-option value="Aprobada">Aprobada</mat-option>
+                <mat-option value="Rechazada">Rechazada</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-dialog-actions class="demo-button">
+            <button mat-raised-button (click)="actualizarEstado()" cdkFocusInitial>Guardar</button>
+            <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
+        </mat-dialog-actions>
     </mat-dialog-content>
 }
 

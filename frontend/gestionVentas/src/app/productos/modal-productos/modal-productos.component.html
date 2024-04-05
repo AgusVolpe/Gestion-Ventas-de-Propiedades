@@ -1,0 +1,25 @@
+<h2 mat-dialog-title class="mat-dialog-title">Agregar Producto</h2>
+<form [formGroup]="dialogForm" (ngSubmit)="guardarProducto()">
+    <mat-dialog-content>
+        <mat-form-field class="mat-form-field">
+            <mat-label>Codigo</mat-label>
+            <input placeholder="Codigo de Propiedad" matInput formControlName="codigo">
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+            <mat-label>Barrio</mat-label>
+            <input placeholder="Barrio" matInput formControlName="barrio">
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+            <mat-label>Precio</mat-label>
+            <input placeholder="Precio" matInput formControlName="precio">
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+            <mat-label>Imagen</mat-label>
+            <input placeholder="Cargue la Url de la Imagen" matInput formControlName="urlImagen">
+        </mat-form-field>
+        <mat-dialog-actions class="demo-button">
+            <button mat-raised-button type="submit" cdkFocusInitial>Guardar</button>
+            <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</form>

@@ -41,4 +41,8 @@ export class NavbarComponent implements OnInit{
   redirectReportes(){
     this.router.navigateByUrl('reportes');
   }
+
+  getRole(){
+    return this.authService.getRoleUsuario();
+  }
 }

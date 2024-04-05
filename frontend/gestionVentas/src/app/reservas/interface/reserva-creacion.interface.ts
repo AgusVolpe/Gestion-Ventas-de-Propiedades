@@ -1,6 +1,5 @@
-export interface Reserva{
-    id: number;
-    idProducto: string;
-    idUusuario: string;
+export interface ReservaCreacion{
+    productoId: string;
+    usuarioId: string;
     nombreCliente: string;
 }

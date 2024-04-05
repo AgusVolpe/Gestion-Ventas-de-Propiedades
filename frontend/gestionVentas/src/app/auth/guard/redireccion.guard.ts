@@ -4,8 +4,6 @@ import { inject } from '@angular/core';
 
 export const redireccionGuard: CanActivateFn = (route, state) => {
 
-  console.log('Redireccion Guard', route);
-
   const authService = inject(AuthService);
   const router = inject(Router);
 

@@ -22,26 +22,12 @@
 
   <mat-form-field class="mat-form-field">
     <mat-label>Rol</mat-label>
-    <!-- <select matNativeControl  >
-      <option value="Administrador">Administrador</option>
-      <option value="Comerciante">Comerciante</option>
-      <option value="Vendedor">Vendedor</option>
-    </select> -->
     <mat-select formControlName="role">
       <mat-option *ngFor="let rol of roles" [value]="rol.name">
         {{rol.name}}
       </mat-option>
     </mat-select>
   </mat-form-field>
-
-  <!-- <mat-form-field>
-    <mat-label>Rol</mat-label>
-    <mat-select [(ngModel)]="selectedValue" formControlName="role">
-      @for (rol of roles; track rol) {
-      <mat-option [value]="rol.name">{{ rol.name }}</mat-option>
-      }
-    </mat-select>
-  </mat-form-field> -->
 
   <hr />
 

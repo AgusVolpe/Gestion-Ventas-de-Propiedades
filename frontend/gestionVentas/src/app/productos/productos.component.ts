@@ -4,6 +4,8 @@ import { ProductosService } from './productos.service';
 import { Producto } from './interface/producto.interface';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalProductosComponent } from './modal-productos/modal-productos.component';
 
 @Component({
   selector: 'app-productos',
@@ -24,6 +26,9 @@ export class ProductosComponent implements OnInit, OnDestroy {
   private productosService = inject(ProductosService);
   private authService = inject(AuthService);
   productos: Producto[] = [];
+  columnsToDisplay: string[] = ['id', 'codigo', 'barrio', 'precio', 'estado', 'urlImagen', 'opciones'];
+    
+  constructor(public dialog: MatDialog) { }
   
   ngOnInit(): void {
     this.getProductos();
@@ -35,35 +40,8 @@ export class ProductosComponent implements OnInit, OnDestroy {
   
   ngOnDestroy(): void {
     this.subscription$.unsubscribe();
-    console.log('Suscripcion eliminada');
   }
   
-  columnsToDisplay: string[] = ['id', 'codigo', 'barrio', 'precio', 'estado', 'urlImagen', 'opciones'];
-  columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
-  
-  getProductos(): void {
-    this.productosService.getProductos().subscribe({
-      next: (productos) => {
-        this.productos = productos;
-        console.log("productos", this.productos) 
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    }); 
-  }
-
-  addData() {
-  }
-
-  updateData() {
-  }
-
-  removeData(id: number) {
-    this.productosService.removeProducto(id).subscribe();
-    console.log('Producto eliminado');
-  }
-
   estadoSegunNumero(estado: number): string | null {
     switch (estado) {
       case 0:
@@ -80,4 +58,40 @@ export class ProductosComponent implements OnInit, OnDestroy {
   getRole(){
     return this.authService.getRoleUsuario();
   }
+  
+  getProductos(): void {
+    this.productosService.getProductos().subscribe({
+      next: (productos) => {
+        this.productos = productos;
+        console.log("productos", this.productos) 
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    }); 
+  }
+
+  abrirModal(id: any):void {
+    const dialogRef = this.dialog.open(ModalProductosComponent, {
+      width: '350px',
+      data:{
+        id: id
+      }
+    });
+    
+    dialogRef.afterClosed().subscribe();
+  }
+
+  addData() {
+    this.abrirModal('');
+  }
+
+  updateData(id: number) {
+    this.abrirModal(id);
+  }
+
+  removeData(id: number) {
+    this.productosService.removeProducto(id).subscribe();
+  }
+
 }

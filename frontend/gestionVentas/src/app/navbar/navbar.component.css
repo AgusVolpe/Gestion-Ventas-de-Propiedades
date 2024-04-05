@@ -1,17 +1,18 @@
-.demo-button {
-    margin-left: 8px;
-    margin-top: 10px;
-    display: inline;
-    float: right;
-}
-
 .menu-icon{
-    margin-left: 8px;
-    margin-top:6px;
+    color: white !important;
 }
 
 .demo-title {
-    margin-left: 8px;
-    margin-top: 12px;
+    margin-right: 8px;
     float: left;
 }
+
+.menu-icon:hover{
+    background-color: #0a0275;
+    cursor: pointer;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+

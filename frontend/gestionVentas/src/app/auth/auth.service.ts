@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   private http = inject(HttpClient);
-  private router = inject(Router);
   private readonly url = environment.apiUrl;
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
 
@@ -21,8 +20,6 @@ export class AuthService {
 
   public authStatus = computed(() => this._authStatus());
   public currentUser = computed(() => this._currentUser());
-
-  // constructor(private http: HttpClient) { }
 
   register(newUser: UserRegister): Observable<any> {
     return this.http.post<any>(`${this.url}/Usuario/Registro`, newUser);

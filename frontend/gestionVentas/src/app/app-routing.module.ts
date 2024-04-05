@@ -6,28 +6,25 @@ import { LoginComponent } from './auth/pages/login/login.component';
 import { redireccionGuard } from './auth/guard/redireccion.guard';
 import { isNotAuthenticatedGuard } from './auth/guard/is-not-authenticated.guard';
 import { authGuard } from './auth/guard/auth.guard';
-import { NavbarComponent } from './navbar/navbar.component';
 import { ReportesComponent } from './reportes/reportes.component';
 
 const routes: Routes = [
   {
     path: 'productos',
-    // canActivate: [authGuard],
-    // data: { roles: ['Administrador, Vendedor'] },
-    // loadChildren: () =>
-    //   import('./productos/productos.module').then((m) => m.ProductosModule),
+    canActivate: [authGuard],
+    data: { roles: ["Administrador", "Vendedor", "Comercial"] },
     component: ProductosComponent
   },
   {
     path: 'reservas',
-    // canActivate: [authGuard],
-    // data: { roles: ['Administrador, Comercial'] },
-    // loadChildren: () =>
-    //   import('./reservas/reservas.module').then((m) => m.ReservasModule),
+    canActivate: [authGuard],
+    data: { roles: ['Administrador', 'Vendedor', 'Comercial'] },
     component: ReservasComponent
   },
   {
     path: 'reportes',
+    canActivate: [authGuard],
+    data: { roles: ['Administrador', 'Comercial'] },
     component: ReportesComponent
   },
   {
@@ -37,7 +34,7 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    //canActivate: [isNotAuthenticatedGuard],
+    canActivate: [isNotAuthenticatedGuard],
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
