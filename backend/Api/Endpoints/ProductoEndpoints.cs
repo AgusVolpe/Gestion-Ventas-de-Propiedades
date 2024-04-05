@@ -4,6 +4,7 @@ using Api.Endpoints.DTO;
 using Api.Service;
 using Api.Utilities;
 using Carter;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -21,7 +22,8 @@ public class ProductoEndpoints : ICarterModule
             var productos = await productoService.GetAllProductos();
 
             return Results.Ok(productos);
-        }).WithTags("Producto");
+        }).WithTags("Producto")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin, Vendedor, Comercial" });
 
 
         app.MapGet("/{idProducto:int}", async (IProductoService productoService, int idProducto) =>
@@ -29,7 +31,17 @@ public class ProductoEndpoints : ICarterModule
             var producto = await productoService.GetProductoById(idProducto);
 
             return Results.Ok(producto);
-        }).WithTags("Producto");
+        }).WithTags("Producto")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin, Vendedor, Comercial" });
+        
+        
+        app.MapGet("/Disponibles", async (IProductoService productoService) =>
+        {
+            var productos = await productoService.GetProductosDisponibles();
+
+            return Results.Ok(productos);
+        }).WithTags("Producto")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Vendedor" });
 
 
         app.MapPost("/", (IProductoService productoService, [FromBody] ProductoCreacionDTO productoCreacionDTO) =>
@@ -37,7 +49,8 @@ public class ProductoEndpoints : ICarterModule
             productoService.CreateProducto(productoCreacionDTO);
 
             return Results.Created();
-        }).WithTags("Producto");
+        }).WithTags("Producto")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Vendedor" });
 
 
         app.MapPut("/{idProducto:int}", async (IProductoService productoService, int idProducto, [FromBody] ProductoCreacionDTO productoCreacionDTO) =>
@@ -45,7 +58,8 @@ public class ProductoEndpoints : ICarterModule
             var productoDTO = await productoService.UpdateProducto(idProducto, productoCreacionDTO);
 
             return Results.Ok(productoDTO);
-        }).WithTags("Producto");
+        }).WithTags("Producto")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Vendedor" });
 
 
         app.MapDelete("/{idProducto:int}", (IProductoService productoService, int idProducto) =>
@@ -53,6 +67,7 @@ public class ProductoEndpoints : ICarterModule
             productoService.DeleteProducto(idProducto);
 
             return Results.NoContent();
-        }).WithTags("Producto");
+        }).WithTags("Producto")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Vendedor" });
     }
 }

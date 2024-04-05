@@ -219,7 +219,6 @@ public class UsuarioRepository(ApiDbContext context,
 
     public async Task<List<Usuario>> GetVendedores()
     {
-
         var usuarios = await userManager.GetUsersInRoleAsync("Vendedor");
         return usuarios.ToList();
     }

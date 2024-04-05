@@ -11,4 +11,3 @@ public class ReservaDTO
     public string NombreCliente { get; set; }
     public EstadoReserva Estado { get; set; }
 }
-//public record ReservaDTO(int Id, int IdProducto, int IdUsuario, string NombreCliente, EstadoReserva Estado);

@@ -17,9 +17,8 @@ public class UsuarioEndpoints : ICarterModule
             var usuario = await usuarioService.Registro(usuarioRegistroDTO);
 
             return Results.Created();
-
-        }).WithTags("Usuario");
-          //.AllowAnonymous();
+        }).WithTags("Usuario")
+          .AllowAnonymous();
 
 
         app.MapPost("/Login", async (IUsuarioService usuarioService, [FromBody] UsuarioLoginDTO usuarioLoginDTO) =>
@@ -28,19 +27,16 @@ public class UsuarioEndpoints : ICarterModule
             var resultado = new { accessToken = usuario };
 
             return Results.Ok(resultado);
-
-        }).WithTags("Usuario");
-        //.AllowAnonymous();
+        }).WithTags("Usuario")
+          .AllowAnonymous();
 
         app.MapGet("/", async (IUsuarioService usuarioService) =>
         {
             var usuarios = await usuarioService.GetUsuarios();
 
             return Results.Ok(usuarios);
-
-        })
-            .WithTags("Usuario");
-        //.RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
+        }).WithTags("Usuario")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
 
 
         app.MapGet("/{idUsuario}", async (IUsuarioService usuarioService, string idUsuario) =>
@@ -48,49 +44,47 @@ public class UsuarioEndpoints : ICarterModule
             var usuario = await usuarioService.GetUsuario(idUsuario);
 
             return Results.Ok(usuario);
-            //return Results.Ok();
-
-        }).WithTags("Usuario");
-        //.RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
+        }).WithTags("Usuario")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
 
         app.MapPost("/Role", (IUsuarioService usuarioService, string roleName) =>
         {
             usuarioService.CreateRole(roleName);
 
             return Results.Created();
-        }).WithTags("Usuario");
-        //.RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
+        }).WithTags("Usuario")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
 
         app.MapPost("/User/{userId:Guid}/AddRole/{roleId:Guid}", (IUsuarioService usuarioService, Guid userId, Guid roleId) =>
         {
             usuarioService.AddRoleToUser(roleId.ToString(), userId.ToString());
 
             return Results.Ok("Rol asociado");
-        }).WithTags("Usuario");
-        //.RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
+        }).WithTags("Usuario")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
 
         app.MapGet("/RolesWithUsuarios", async (IUsuarioService usuarioService) =>
         {
             var roles = await usuarioService.GetRoles();
 
             return Results.Ok(roles);
-        }).WithTags("Usuario");
-        //.RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" }); 
+        }).WithTags("Usuario")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
 
         app.MapGet("/UsuariosWithRoles", async (IUsuarioService usuarioService) =>
         {
             var usuarios = await usuarioService.GetUsersWithRoles();
 
             return Results.Ok(usuarios);
-        }).WithTags("Usuario");
-          //.RequireAuthorization(new AuthorizeAttribute { Roles = "administrador" });
+        }).WithTags("Usuario")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
 
         app.MapGet("/ReporteVendedores", async (IUsuarioService usuarioService) =>
         {
             var usuarios = await usuarioService.GetReporte();
 
             return Results.Ok(usuarios);
-        }).WithTags("Usuario");
-          //.RequireAuthorization(new AuthorizeAttribute { Roles = "Comercial" });
+        }).WithTags("Usuario")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin, Comercial" });
     }
 }
