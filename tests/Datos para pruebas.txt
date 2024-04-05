@@ -1,0 +1,8 @@
+Como el test para usuarios necesita un usuario Admin, dejo los datos para el login de uno ya creado en la base de datos, para poder obtener su token y cambiarlo por el accessToken de declarado en testUsuarios, para que el mismo tenga validez.
+
+{
+  "email": "novit@novit.com",
+  "password": "Novit_1"
+}
+
+En caso de querer registrar un nuevo usuario, al usar la clase Identity para el manejo de usuarios y roles, no se olviden de crear una password que contenga al menos una letra mayuscula, un caracter especial y un numero. Ademas de esto, los roles ingresados en la base de datos son "Admin", "Vendedor" y "Comercial".

@@ -55,7 +55,7 @@ public class UsuarioEndpoints : ICarterModule
         }).WithTags("Usuario")
           .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
 
-        app.MapPost("/User/{userId:Guid}/AddRole/{roleId:Guid}", (IUsuarioService usuarioService, Guid userId, Guid roleId) =>
+        app.MapPost("/{userId:Guid}/AddRole/{roleId:Guid}", (IUsuarioService usuarioService, Guid userId, Guid roleId) =>
         {
             usuarioService.AddRoleToUser(roleId.ToString(), userId.ToString());
 
