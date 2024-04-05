@@ -26,7 +26,7 @@ builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
-        Name = "Authorizarion",
+        Name = "Authorization",
         Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer",
         BearerFormat = "Token",
@@ -50,8 +50,24 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+var config = builder.Configuration;
 
-var clave = builder.Configuration.GetValue<string>("Settings:SecretKey");
+builder.Services.AddDbContext<ApiDbContext>(options => options.UseSqlite(config.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddCors(opt => 
+    opt.AddPolicy("Academia2024", policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
+
+builder.Services.AddIdentity<Usuario, IdentityRole>().AddEntityFrameworkStores<ApiDbContext>();
+
+builder.Services.AddTransient<IProductoRepository, ProductoRepository>();
+builder.Services.AddTransient<IReservaRepository, ReservaRepository>();
+builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IReservaService, ReservaService>();
+builder.Services.AddScoped<IProductoService, ProductoService>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+
+
+var clave = builder.Configuration.GetValue<string>("JWT:Key");
 builder.Services
     .AddAuthentication(x =>
     {
@@ -75,21 +91,7 @@ builder.Services
         };
     });
 
-builder.Services.AddCors(opt => 
-    opt.AddPolicy("Academia2024", policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 
-var config = builder.Configuration;
-
-builder.Services.AddDbContext<ApiDbContext>(options => options.UseSqlite(config.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddIdentity<Usuario, IdentityRole>().AddEntityFrameworkStores<ApiDbContext>();
-
-builder.Services.AddTransient<IProductoRepository, ProductoRepository>();
-builder.Services.AddTransient<IReservaRepository, ReservaRepository>();
-builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
-builder.Services.AddScoped<IReservaService, ReservaService>();
-builder.Services.AddScoped<IProductoService, ProductoService>();
-builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
 var app = builder.Build();
 

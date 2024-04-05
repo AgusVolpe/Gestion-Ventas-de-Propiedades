@@ -10,9 +10,9 @@ public interface IUsuarioService
 {
     Task<List<UsuarioReservasDTO>> GetUsuarios();
     Task<UsuarioReservasDTO> GetUsuario(string idUsuario);
-    Task<List<RolesUsuarioDTO>> GetRoles();
-    Task<List<UsuarioRolesDTO>> GetUsersWithRoles();
     Task<List<UsuarioReporteDTO>> GetReporte();
+    Task<List<UsuarioRolesDTO>> GetUsersWithRoles();
+    Task<List<RolesUsuarioDTO>> GetRoles();
     Task<UsuarioDTO> Registro(UsuarioRegistroDTO usuarioRegistroDTO);
     Task<string> Login(UsuarioLoginDTO usuarioLoginDTO);
     void CreateRole(string roleName);
@@ -47,7 +47,7 @@ public class UsuarioService(IUsuarioRepository usuarioRepository) : IUsuarioServ
             var reservas = usuarioRepository.GetUsuario(usuario.Id).Result.Reservas.ToList();
             foreach (var reserva in reservas)
             {
-                if(reserva.Producto.Estado == EstadoProducto.Vendido)
+                if(reserva.Estado == EstadoReserva.Aprobada)
                 {
                     ventas++;
                 }

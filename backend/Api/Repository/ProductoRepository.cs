@@ -9,6 +9,7 @@ namespace Api.Repository;
 public interface IProductoRepository
 {
     Task<List<Producto>> GetProductos();
+    Task<List<Producto>> GetProductosDisponibles();
     Task<Producto> GetProducto(int idProducto);
     void AddProducto(ProductoCreacionDTO productoCreacionDTO);
     Task<Producto> UpdateProducto(int idProducto, ProductoCreacionDTO productoCreacionDTO);
@@ -50,6 +51,12 @@ public class ProductoRepository(ApiDbContext context) : IProductoRepository
     {
         var productos = await context.Productos.ToListAsync();
 
+        return productos;
+    }
+
+    public async Task<List<Producto>> GetProductosDisponibles()
+    {
+        var productos = await context.Productos.Where(p => p.Estado == EstadoProducto.Disponible).ToListAsync();
         return productos;
     }
 

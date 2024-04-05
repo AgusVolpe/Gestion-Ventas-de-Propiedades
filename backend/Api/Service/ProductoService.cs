@@ -9,6 +9,7 @@ namespace Api.Service;
 public interface IProductoService
 {
     Task<List<ProductoDTO>> GetAllProductos();
+    Task<List<ProductoDTO>> GetProductosDisponibles();
     Task<ProductoDTO> GetProductoById(int idProducto);
     void CreateProducto(ProductoCreacionDTO productoCreacionDTO);
     Task<ProductoDTO> UpdateProducto(int idProducto, ProductoCreacionDTO productoCreacionDTO);
@@ -46,5 +47,12 @@ public class ProductoService(IProductoRepository productoRepository) : IProducto
         var producto = productoRepository.UpdateProducto(idProducto, productoCreacionDTO);
         var productoDTO = producto.Result.Adapt<ProductoDTO>();
         return productoDTO;
+    }
+
+    public async Task<List<ProductoDTO>> GetProductosDisponibles()
+    {
+        var productosDisponibles = await productoRepository.GetProductosDisponibles();
+        var productosDisponiblesDTO = productosDisponibles.Adapt<List<ProductoDTO>>();
+        return productosDisponiblesDTO;
     }
 }

@@ -52,15 +52,13 @@ public class ReservaRepository(ApiDbContext context) : IReservaRepository
 
     public async Task<Reserva> GetReserva(int idReserva)
     {
-        //var reserva = await context.Reservas.Include(r => r.Producto).Include(r => r.Usuario).FirstOrDefaultAsync(r => r.Id == idReserva);
-        var reserva = await context.Reservas.Include(r => r.Producto).FirstOrDefaultAsync(r => r.Id == idReserva);
+        var reserva = await context.Reservas.Include(r => r.Producto).Include(r => r.Usuario).FirstOrDefaultAsync(r => r.Id == idReserva);
         return reserva;
     }
 
     public async Task<List<Reserva>> GetReservas()
     {
         var reservas = await context.Reservas.Include(r => r.Producto).Include(r => r.Usuario).ToListAsync();
-        //var reservas = await context.Reservas.Include(r => r.Producto).ToListAsync();
         return reservas;
     }
 
@@ -130,19 +128,12 @@ public class ReservaRepository(ApiDbContext context) : IReservaRepository
     public async Task<bool> AprobacionAutomatica(string barrio)
     {
         bool resultado = false;
-        bool isUnique = false;
         var reservas = await context.Reservas.Where(r => r.Estado == EstadoReserva.Ingresada && r.Producto.Estado == EstadoProducto.Disponible).Include(r => r.Producto).ToListAsync();
-
-        //var productosCount = await context.Productos.CountAsync(p => p.Barrio == barrio && p.Estado == EstadoProducto.Disponible);
-
-        //if (productosCount == 1)
-        //    isUnique = true;
-
         foreach (var reserva in reservas)
         {
             bool condicion = ((reserva.Producto.Barrio == barrio && reserva.Producto.Precio < 100000) ||
                            (reserva.Producto.Barrio == barrio && reserva.Producto.Estado == EstadoProducto.Disponible));
-                           //(isUnique));
+
             if (condicion)
             {
                 reserva.Estado = EstadoReserva.Aprobada;
@@ -150,9 +141,7 @@ public class ReservaRepository(ApiDbContext context) : IReservaRepository
                 resultado = true;
             }
         }
-
         await context.SaveChangesAsync();
-
         return resultado;
     }
 }

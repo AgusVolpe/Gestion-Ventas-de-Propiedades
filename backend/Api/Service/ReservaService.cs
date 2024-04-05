@@ -13,6 +13,7 @@ public interface IReservaService
     void CreateReserva(ReservaCreacionDTO reservaCreacionDTO, string barrio);
     Task<ReservaDTO> UpdateEstadoReserva(int idReserva, EstadoReserva estado);
     void DeleteReserva(int idReserva);
+    Task<bool> NegarReserva(string idUsuario);
 }
 
 public class ReservaService(IReservaRepository reservaRepository, IProductoRepository productoRepository, IUsuarioRepository usuarioRepository) : IReservaService
@@ -20,13 +21,11 @@ public class ReservaService(IReservaRepository reservaRepository, IProductoRepos
     public async void CreateReserva(ReservaCreacionDTO reservaCreacionDTO, string barrio)
     {
         var producto = await productoRepository.GetProducto(reservaCreacionDTO.ProductoId);
-        //var producto = productoDTO.Adapt<Producto>();
 
         if (producto is null)
             throw new Exception($"El producto con Id {reservaCreacionDTO.ProductoId} no existe");
 
         var usuario = await usuarioRepository.GetUsuario(reservaCreacionDTO.UsuarioId);
-        //var usuario = usuarioDTO.Adapt<Usuario>();
 
         if (usuario is null)
             throw new Exception($"El usuario con Id {reservaCreacionDTO.UsuarioId} no existe");
@@ -35,7 +34,6 @@ public class ReservaService(IReservaRepository reservaRepository, IProductoRepos
             throw new Exception($"El usuario con Id {usuario.Id} y nombre {usuario.UserName} posee el maximo de 3 reservas ingresadas");
 
         reservaRepository.AddReserva(producto, usuario, reservaCreacionDTO.NombreCliente, barrio);
-        //reservaRepository.AddReserva(reservaCreacionDTO);
     }
 
     public async Task<ReservaDTO> GetReservaById(int idReserva)
