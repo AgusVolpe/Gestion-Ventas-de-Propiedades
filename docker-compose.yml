@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  back:
+    image: apireserva:latest
+    container_name: apireserva
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 5000:5000
+  
+  front:
+    image: gestionventas:latest
+    container_name: gestionventas
+    build:
+      context: ./frontend/gestionVentas
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 4200:80

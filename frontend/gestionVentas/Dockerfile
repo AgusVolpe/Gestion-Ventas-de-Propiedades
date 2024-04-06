@@ -1,5 +1,5 @@
 # Establece la imagen base en este caso es node:21
-FROM node:20.9.0-alpine as build
+FROM node:21-alpine3.18 as build
 
 # Copia todo el contenido del directorio actual al directorio /app en la imagen
 COPY . /app
@@ -12,7 +12,7 @@ COPY package.json package.json
 
 # Instala las dependencias del proyecto utilizando npm
 RUN npm install \
-    && npm install --save-dev @angular/cli@17.2.3 sass \
+    && npm install --save-dev @angular/cli@17.0.10 sass \
     && npx ng build
 
 # Establece una nueva etapa en la construcción utilizando la imagen de nginx para el build del proyecto
