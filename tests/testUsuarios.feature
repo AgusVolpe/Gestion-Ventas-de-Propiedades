@@ -3,7 +3,7 @@ Feature: pruebas para usuarios
 Background:
 
 * configure ssl = true
-* def urlPagina = 'https://localhost:7270/api'
+* def urlPagina = 'https://localhost:4200'
 * def accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMjM2MDM4MCwiZXhwIjoxNzEyNDQ2NzgwLCJpYXQiOjE3MTIzNjAzODB9.vhe4EXS9L9aH_zc9lYa1eP9is6K28IIbutY9gDUgH80'
 * def IdUsuarioLogeado = "f2e37e7f-eb53-4b43-a173-990d690111f3";
 * def IdUsuarioCualquiera = "7e8debbc-851c-4457-aaf4-28eb8a07977e";
