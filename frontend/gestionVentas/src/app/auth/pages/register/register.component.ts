@@ -36,8 +36,6 @@ export class RegisterComponent implements OnInit{
   register() {
     const { email, password, role } = this.registerForm.value;
 
-    // const user = this.registerForm.value as UserRegister
-
     const newUser: UserRegister = {
       email: email,
       password: password,
@@ -59,7 +57,6 @@ export class RegisterComponent implements OnInit{
   getRoles(){
     this.authService.getRoles().subscribe(result => {
       this.roles = result;
-      console.log('Result de roles es: ', this.roles);
     })
   }
 }

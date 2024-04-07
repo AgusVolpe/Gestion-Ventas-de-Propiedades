@@ -30,7 +30,7 @@ export class ReservasComponent implements OnInit, OnDestroy{
   reservas: Reserva[] = [];
   reserva!: Reserva;
   estado!: EstadoReserva;
-  columnsToDisplay: string[] = ['id', 'producto', 'usuario', 'nombreCliente', 'estado', 'opciones'];
+  columnsToDisplay: string[] = ['producto', 'usuario', 'nombreCliente', 'estado', 'opciones'];
 
   constructor(public dialog: MatDialog) { }
   
@@ -69,7 +69,6 @@ export class ReservasComponent implements OnInit, OnDestroy{
     this.reservasService.getReservas().subscribe({
       next: (reservas) => {
         this.reservas = reservas;
-        console.log("reservas", this.reservas) 
       },
       error: (err) => {
         console.log(err);
@@ -84,10 +83,7 @@ export class ReservasComponent implements OnInit, OnDestroy{
         id: id
       }
     });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialogo cerrado: Resultado = ${result}`);
-      //this.reserva = result;
-    });
+    dialogRef.afterClosed().subscribe();
   }
 
   addData() {

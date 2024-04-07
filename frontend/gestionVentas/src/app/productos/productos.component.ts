@@ -26,7 +26,7 @@ export class ProductosComponent implements OnInit, OnDestroy {
   private productosService = inject(ProductosService);
   private authService = inject(AuthService);
   productos: Producto[] = [];
-  columnsToDisplay: string[] = ['id', 'codigo', 'barrio', 'precio', 'estado', 'urlImagen', 'opciones'];
+  columnsToDisplay: string[] = ['codigo', 'barrio', 'precio', 'estado', 'urlImagen', 'opciones'];
     
   constructor(public dialog: MatDialog) { }
   
@@ -63,7 +63,6 @@ export class ProductosComponent implements OnInit, OnDestroy {
     this.productosService.getProductos().subscribe({
       next: (productos) => {
         this.productos = productos;
-        console.log("productos", this.productos) 
       },
       error: (err) => {
         console.log(err);

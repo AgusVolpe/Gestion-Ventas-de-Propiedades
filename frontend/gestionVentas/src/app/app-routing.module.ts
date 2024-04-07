@@ -12,19 +12,19 @@ const routes: Routes = [
   {
     path: 'productos',
     canActivate: [authGuard],
-    data: { roles: ["Administrador", "Vendedor", "Comercial"] },
+    data: { roles: ["Admin", "Vendedor", "Comercial"] },
     component: ProductosComponent
   },
   {
     path: 'reservas',
     canActivate: [authGuard],
-    data: { roles: ['Administrador', 'Vendedor', 'Comercial'] },
+    data: { roles: ['Admin', 'Vendedor', 'Comercial'] },
     component: ReservasComponent
   },
   {
     path: 'reportes',
     canActivate: [authGuard],
-    data: { roles: ['Administrador', 'Comercial'] },
+    data: { roles: ['Admin', 'Comercial'] },
     component: ReportesComponent
   },
   {

@@ -9,7 +9,6 @@ import { AuthService } from '../auth/auth.service';
 export class ReportesComponent implements OnInit {
   title: string = 'Seccion Reportes';
 
-
   private authService = inject(AuthService);
 
   ngOnInit(): void {
@@ -18,8 +17,6 @@ export class ReportesComponent implements OnInit {
 
   view: [number, number] = [900,500];
   salesData = [];
-
-  
   gradient = false;
   showLegend = true;
   showXAxis = true;
@@ -32,11 +29,7 @@ export class ReportesComponent implements OnInit {
   getReporte(){
     this.authService.getReporte().subscribe(resultado => {
       this.salesData = resultado;
-      console.log("resultado reporte: ", this.salesData);
     })
   }
-
-  
-
 }
 

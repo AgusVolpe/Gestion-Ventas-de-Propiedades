@@ -16,14 +16,6 @@ export class LoginComponent implements OnInit {
 
   myForm!: FormGroup
 
-  // constructor(private fb: FormBuilder) {
-
-  //   this.myForm = new FormGroup({
-  //     username: new FormControl('', []),
-  //     password: new FormControl('', [])
-  //   })
-  // }
-
   ngOnInit(): void {
     this.myForm = this.fb.group({
       email: ['', [Validators.required]],
@@ -33,27 +25,17 @@ export class LoginComponent implements OnInit {
 
 
   login() {
-    // console.log(this.myForm.value);
-
     const newUsuario = this.myForm.value as UserLogin
 
     this.authService.login(newUsuario)
       .subscribe({
         next: res => {
-
-          console.log('llego por next', res);
-
           this.router.navigateByUrl('/')
-
         },
         error: err => {
           console.log(err);
         }
       })
-
-    // result ok:
-    // this.router.navigate(['detalle', 1])
-
   }
 
 

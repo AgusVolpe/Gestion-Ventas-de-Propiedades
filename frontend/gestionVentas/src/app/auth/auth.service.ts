@@ -1,11 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { User, UserLogin, UserRegister } from './interface';
 import * as jwt from 'jwt-decode';
 import { AuthStatus } from './interface/auth-status.enum';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -40,8 +39,6 @@ export class AuthService {
 
       const userResponse = jwt.jwtDecode(token) as User;
 
-      console.log('userResponse: ', userResponse);
-
       this._authStatus.set(AuthStatus.authenticated);
 
       this._currentUser.set({
@@ -53,13 +50,10 @@ export class AuthService {
 
       this.isAuthenticatedSubject.next(true);
     }
-
-    console.log('señal computada: ', this.currentUser());
   }
 
   checkStatus() {
     const token = localStorage.getItem('accessToken');
-    console.log('checkStatus', token);
 
     this.setAuthentication(token);
   }
@@ -78,11 +72,19 @@ export class AuthService {
   }
 
   getRoles(): Observable<any>{
-    return this.http.get<any>(`${this.url}/Usuario/RolesWithUsuarios`);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+    });
+
+    return this.http.get<any>(`${this.url}/Usuario/RolesWithUsuarios`, {headers});
   }
 
   getReporte(): Observable<any>{
-    return this.http.get<any>(`${this.url}/Usuario/ReporteVendedores`)
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+    });
+
+    return this.http.get<any>(`${this.url}/Usuario/ReporteVendedores`, {headers})
   }
 
   getIdUsuario(): string | undefined{

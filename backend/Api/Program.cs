@@ -96,15 +96,15 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseSwagger();
+    app.UseSwaggerUI(opt => opt.EnableTryItOutByDefault());
 }
-app.UseSwagger();
-app.UseSwaggerUI(opt => opt.EnableTryItOutByDefault());
 
+app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseHttpsRedirection();
 
 app.UseCors("Academia2024");
 

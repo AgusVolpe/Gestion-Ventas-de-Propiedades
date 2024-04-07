@@ -21,7 +21,6 @@ export class AppComponent implements OnInit{
   
   ngOnInit(): void {
     this.authService.checkStatus();
-    //console.log("Navigator Bar cargado")
     if(this.authService.authStatus() === AuthStatus.authenticated){
       this.isAuthenticated = true;
     }

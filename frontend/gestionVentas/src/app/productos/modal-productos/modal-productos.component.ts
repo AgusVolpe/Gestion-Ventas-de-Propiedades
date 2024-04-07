@@ -49,8 +49,6 @@ export class ModalProductosComponent implements OnInit{
 
   guardarProducto(): void {
    if(this.dialogForm.valid){
-      console.log("reactiveForm",this.dialogForm.value);
-
       const { codigo, barrio, precio, urlImagen } = this.dialogForm.value;
   
       const ProductoCreacion: ProductoCreacion = {

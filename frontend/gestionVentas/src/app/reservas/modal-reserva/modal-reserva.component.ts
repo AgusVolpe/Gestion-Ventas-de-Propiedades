@@ -33,7 +33,9 @@ export class ModalReservaComponent implements OnInit{
         usuarioId: [this.authService.getIdUsuario(), Validators.required],
         nombreCliente: ['', Validators.required],
       });
-      this.negar = this.negarReserva(this.getId());
+      if(this.getRole() == "Vendedor"){
+        this.negar = this.negarReserva(this.getId());
+      }
   }
 
   ngOnInit(): void {
