@@ -4,8 +4,8 @@ Background:
 
 * configure ssl = true
 * def urlPagina = 'http://localhost:5000/api'
-* def accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEyMzU3ODE3LCJleHAiOjE3MTI0NDQyMTcsImlhdCI6MTcxMjM1NzgxN30.V3XChL4Y6KPtbF4GdOhPXpQT5_g5KJRQzA8PP-nA3-I'
-* def IdReserva = 6;
+* def accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEzMjk5NzEzLCJleHAiOjE3MTMzODYxMTMsImlhdCI6MTcxMzI5OTcxM30.zdYb1dWHwySAQ6B4hnVajjYUYtVA0xqANaUZiTfqB0o'
+* def IdReserva = 28;
 * def IdUsuarioLogeado = "7e8debbc-851c-4457-aaf4-28eb8a07977e";
 * def BarrioPost = '';
 * def EstadoPatch = 2;

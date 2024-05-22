@@ -1,45 +1,48 @@
 <h2 class="login-title">Login</h2>
 
 <form [formGroup]="myForm" (ngSubmit)="login()" class="login-form">
-  <!-- <div class="form-group">
-    <label for="username">Usuario</label>
-    <input
-      type="text"
-      id="username"
-      name="username"
-      formControlName="username"
-      class="form-control"
-    />
-  </div> -->
   <mat-form-field class="mat-form-field">
     <mat-label>Email</mat-label>
     <input
       matInput
+      type="email"
       formControlName="email"
       placeholder="Ingrese email"
     />
   </mat-form-field>
-
-  <!-- <div class="form-group">
-    <label for="password">Contraseña</label>
-    <input
-      class="form-control"
-      type="password"
-      id="password"
-      name="password"
-      formControlName="password"
-    />
-  </div> -->
+  @if(form['email'].errors?.['pattern']){
+    <div>
+      <small class="text-danger">
+        Formato de Email incorrecto.
+      </small> 
+    </div>
+    <br />
+  }
 
   <mat-form-field class="mat-form-field">
-    <mat-label>Password</mat-label>
-    <input matInput formControlName="password" type="password" />
+    <mat-label for="password">Password</mat-label>
+    <input 
+      matInput 
+      id="password" 
+      [type]="hide ? 'password' : 'text'"
+      formControlName="password" 
+      placeholder="Ingrese contraseña"/>
+      <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
   </mat-form-field>
+  @if(form['password'].errors?.['pattern']){
+    <div>
+      <small class="text-danger">
+        La contraseña debe contener al menos una letra mayúscula, un carácter especial y un número.
+      </small> 
+    </div>
+    <br />
+  }
 
   <hr />
 
   <div class="button-container">
-    <!-- <button type="submit" class="button button-submit">Iniciar Sesión</button> -->
     <button type="submit" mat-raised-button color="primary">
       Iniciar Sesion
     </button>
@@ -51,21 +54,3 @@
 
 <br />
 <hr />
-<!-- Ejemplo Material -->
-
-<!-- <p>
-  <mat-form-field appearance="fill">
-    <mat-label>Fill form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    <mat-hint>Hint</mat-hint>
-  </mat-form-field>
-</p>
-<p>
-  <mat-form-field appearance="outline">
-    <mat-label>Outline form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    <mat-hint>Hint</mat-hint>
-  </mat-form-field>
-</p> -->

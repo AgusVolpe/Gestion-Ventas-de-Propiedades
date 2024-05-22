@@ -27,6 +27,9 @@ public interface IUsuarioRepository
     string GeneradorToken(Usuario usuario, string roleUsuario, string secretKey);
     void AddRole(string roleName);
     void AddRoleToUser(string roleId, Usuario usuario);
+    Task RemoveRoleToUser(string roleId, Usuario usuario);
+    void RemoveUser(string userId);
+    void RemoveRole(string roleId);
 }
 
 public class UsuarioRepository(ApiDbContext context, 
@@ -176,7 +179,7 @@ public class UsuarioRepository(ApiDbContext context,
 
     public async Task<List<UsuarioRolesDTO>> GetUsersWithRoles()
     {
-        var usuarios = await context.Usuarios.ToListAsync();
+        var usuarios = await context.Usuarios.Include(u => u.Reservas).ThenInclude(r => r.Producto).ToListAsync();
 
         var result = new List<UsuarioRolesDTO>();
         foreach (var usuario in usuarios)
@@ -197,8 +200,9 @@ public class UsuarioRepository(ApiDbContext context,
             {
                 Id = usuario.Id,
                 Email = usuario.Email,
+                Reservas = usuario.Reservas.Adapt<List<ReservaUsuarioDTO>>(),
                 Roles = rols
-            });
+            }); 
         }
 
         return result;
@@ -209,12 +213,54 @@ public class UsuarioRepository(ApiDbContext context,
         await roleManager.CreateAsync(new IdentityRole { Name = roleName });
     }
 
+    public async void RemoveUser(string userId)
+    {
+        try
+        {
+            var usuario = await context.Usuarios.FirstOrDefaultAsync(p => p.Id == userId);
+            if (usuario is null)
+                throw new Exception($"El usuario con Id {userId} no existe");
+
+            context.Usuarios.Remove(usuario);
+
+            await context.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Se produjo un error al eliminar el usuario", ex);
+        }
+    }
+    public async void RemoveRole(string roleId)
+    {
+        try
+        {
+            var rol = await context.Roles.FirstOrDefaultAsync(p => p.Id == roleId);
+            if (rol is null)
+                throw new Exception($"El rol con Id {roleId} no existe");
+
+            context.Roles.Remove(rol);
+            await context.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Se produjo un error al eliminar el rol", ex);
+        }
+    }
+
     public async void AddRoleToUser(string roleId, Usuario usuario)
     {
         var rol = await roleManager.FindByIdAsync(roleId);
         if (rol is null)
-            throw new Exception("Rol no encontraado");
+            throw new Exception("Rol no encontrado");
         await userManager.AddToRoleAsync(usuario,rol.Name);
+    }
+    
+    public async Task RemoveRoleToUser(string roleId, Usuario usuario)
+    {
+        var rol = await roleManager.FindByIdAsync(roleId);
+        if (rol is null)
+            throw new Exception("Rol no encontrado");
+        await userManager.RemoveFromRoleAsync(usuario, rol.Name);
     }
 
     public async Task<List<Usuario>> GetVendedores()

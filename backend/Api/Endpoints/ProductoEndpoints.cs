@@ -41,7 +41,7 @@ public class ProductoEndpoints : ICarterModule
 
             return Results.Ok(productos);
         }).WithTags("Producto")
-          .RequireAuthorization(new AuthorizeAttribute { Roles = "Vendedor" });
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Vendedor, Comercial" });
 
 
         app.MapPost("/", (IProductoService productoService, [FromBody] ProductoCreacionDTO productoCreacionDTO) =>

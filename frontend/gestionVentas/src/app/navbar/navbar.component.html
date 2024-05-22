@@ -5,6 +5,9 @@
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="redirectReservas()">Reservas</button>
             <button mat-menu-item (click)="redirectProductos()">Productos</button>
+            @if(getRole() == "Admin"){
+                <button mat-menu-item (click)="redirectUsuarios()">Usuarios</button>
+            }
             @if(getRole() == "Comercial" || getRole() == "Admin"){
                 <button mat-menu-item (click)="redirectReportes()">Reporte de Ventas</button>
             }

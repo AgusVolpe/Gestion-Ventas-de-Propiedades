@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"testProductos[1:11]","start":1713296802980,"end":1713296807286,"title":"testProductos[1:11] 16:46:42.980-16:46:47.286 Obtener todos los Productos"},{"id":2,"group":1,"content":"testProductos[2:18]","start":1713296807295,"end":1713296807587,"title":"testProductos[2:18] 16:46:47.295-16:46:47.587 Obtener un Producto por Id"},{"id":3,"group":1,"content":"testProductos[3:25]","start":1713296807597,"end":1713296807757,"title":"testProductos[3:25] 16:46:47.597-16:46:47.757 Obtener todos los Productos disponibles para ser reservados"},{"id":4,"group":1,"content":"testProductos[4:32]","start":1713296807765,"end":1713296808200,"title":"testProductos[4:32] 16:46:47.765-16:46:48.200 Agregar Producto"},{"id":5,"group":1,"content":"testProductos[5:40]","start":1713296808208,"end":1713296808270,"title":"testProductos[5:40] 16:46:48.208-16:46:48.270 Modificar un Producto"},{"id":6,"group":1,"content":"testProductos[6:48]","start":1713296808278,"end":1713296808358,"title":"testProductos[6:48] 16:46:48.278-16:46:48.358 Eliminar Producto"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

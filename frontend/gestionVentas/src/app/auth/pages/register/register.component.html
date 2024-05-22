@@ -9,17 +9,39 @@
       placeholder="Ingrese email"
     />
   </mat-form-field>
+  @if(form['email'].errors?.['pattern']){
+    <div>
+      <small class="text-danger"> 
+        Formato de Email incorrecto.
+      </small> 
+    </div>
+    <br />
+  }
 
   <mat-form-field class="mat-form-field">
-    <mat-label>Password</mat-label>
+    <mat-label for="password">Password</mat-label>
     <input
       matInput
-      type="password"
+      id="password"
+      [type]="hide ? 'password' : 'text'"
       formControlName="password"
       placeholder="Ingrese contraseña"
     />
+    <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"> -->
+    <button mat-icon-button type="button" matSuffix (click)="hide = !hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
   </mat-form-field>
+  @if(form['password'].errors?.['pattern']){
+    <div>
+      <small class="text-danger">
+        La contraseña debe contener al menos una letra mayúscula, un carácter especial y un número.
+      </small> 
+    </div>
+    <br />
+  }
 
+  
   <mat-form-field class="mat-form-field">
     <mat-label>Rol</mat-label>
     <mat-select formControlName="role">

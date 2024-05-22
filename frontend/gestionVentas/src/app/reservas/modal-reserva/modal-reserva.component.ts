@@ -17,6 +17,7 @@ export class ModalReservaComponent implements OnInit{
   dialogForm!: FormGroup;
   barrioInput: string = '';
   estado!: EstadoReserva;
+  EstadoReserva = EstadoReserva;
   productos: any[] = [];
   negar: boolean = false;
 
@@ -80,7 +81,8 @@ export class ModalReservaComponent implements OnInit{
   
   actualizarEstado(){
     if(this.data.id != null && this.data.id != ''){
-      this.reservasService.updateReserva(this.data.id,this.estado).subscribe({
+      console.log("Estado Reserva: ", this.estado);
+      this.reservasService.updateReserva(this.data.id,this.numeroSegunEstado(this.estado)).subscribe({
         next: (reserva) => {
           this.dialogRef.close();
         },
@@ -104,5 +106,20 @@ export class ModalReservaComponent implements OnInit{
 
   getId(){
     return this.authService.getIdUsuario();
+  }
+
+  numeroSegunEstado(estado: EstadoReserva): number {
+    switch (estado) {
+      case EstadoReserva.Ingresada:
+        return 0
+      case EstadoReserva.Cancelada:
+        return 1
+      case EstadoReserva.Aprobada:
+        return 2
+      case EstadoReserva.Rechazada:
+        return 3
+      default:
+        return 0
+    }
   }
 }

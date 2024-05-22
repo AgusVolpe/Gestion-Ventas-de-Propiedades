@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="res/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="res/karate-report.css" type="text/css"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script type="text/javascript" src="res/jquery.min.js"></script>
+    <script type="text/javascript" src="res/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="res/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="res/bootstrap.min.js"></script>
+    <script type="text/javascript" src="res/karate-report.js"></script>
+    <script type="text/javascript" src="res/Resemble.js"></script>
+    <script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
+  api_host:'https://app.posthog.com',
+  persistence:'localStorage',
+  autocapture:false,
+  capture_pageview:false,
+  api_transport:'sendBeacon',
+  loaded: function(posthog) { 
+    posthog.capture("report_feature",{distinct_id:"606c6886-50b5-4236-9bb1-252fed910707",karate_version:"1.4.1",karate_meta:null});
+  }
+});
+</script>
+
+    <title>testProductos</title>
+  </head>
+  <body>
+    <div id="root-container">
+      <div id="leftnav">
+        
+        <div>
+  <div class="nav-logo">
+    <a href="https://karatelabs.io">
+      <img src="karate-labs-logo-ring.svg" alt="Karate Labs"/>
+    </a>
+    <div class="nav-count">
+      <div id="nav-pass" class="bg-success">6</div>
+      <div id="nav-fail" class="bg-danger">0</div>
+    </div>
+  </div>
+  <div id="nav-env">
+    <div></div>
+  </div>
+  <div id="nav-type">
+    <div>Scenarios</div>
+  </div>
+  <div id="nav-date">
+    <div>2024-04-16 04:46:48 p. m.</div>
+  </div>
+</div>
+
+        <div class="nav-container">
+          <div class="nav-item passed">
+            <a href="#[1:11]"><span>[1:11]</span> <span>Obtener todos los Productos</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[2:18]"><span>[2:18]</span> <span>Obtener un Producto por Id</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[3:25]"><span>[3:25]</span> <span>Obtener todos los Productos disponibles para ser reservados</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[4:32]"><span>[4:32]</span> <span>Agregar Producto</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[5:40]"><span>[5:40]</span> <span>Modificar un Producto</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[6:48]"><span>[6:48]</span> <span>Eliminar Producto</span></a>
+          </div>
+        </div>
+      </div>
+      <div id="content">
+        <div class="page-heading alert alert-primary">
+          <a href="karate-summary.html">Summary</a><span class="feature-label">|</span>
+          <a href="karate-tags.html">Tags</a><span class="feature-label">|</span>
+          <span class="feature-label">Feature:</span>
+          <span class="feature-path">testProductos.feature</span><span class="feature-label">|</span>
+          <span class="feature-name">pruebas para productos</span>
+          <span class="feature-description"></span>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[1:11]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[1:11]</span>
+                <span class="scenario-name">Obtener todos los Productos</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>4277</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[1:11]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[1:11]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure ssl = true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">672</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[1:11]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def urlPagina = &#39;http://localhost:5000/api&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">4</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[1:11]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def accessToken = &#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEzMjk2MjE4LCJleHAiOjE3MTMzODI2MTgsImlhdCI6MTcxMzI5NjIxOH0.YgnFYBl9DIgkxcVl3vhC8cq5iWghrpF_Kw1rnDAmVi4&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[1:11]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdProducto = 17;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">11</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.12">
+      <div class="step-ref passed">12</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url urlPagina + &#39;/Producto&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">30</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.13">
+      <div class="step-ref passed">13</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = &#39;Bearer &#39; + accessToken</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.14">
+      <div class="step-ref passed">14</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method GET</span>
+      </div>
+    </div>
+    <div class="time-cell passed">3552</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.14">16:46:43.873 request:
+1 &gt; GET http://localhost:5000/api/Producto
+1 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEzMjk2MjE4LCJleHAiOjE3MTMzODI2MTgsImlhdCI6MTcxMzI5NjIxOH0.YgnFYBl9DIgkxcVl3vhC8cq5iWghrpF_Kw1rnDAmVi4
+1 &gt; Host: localhost:5000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+16:46:47.242 response time in milliseconds: 3359
+1 &lt; 200
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Date: Tue, 16 Apr 2024 19:46:46 GMT
+1 &lt; Server: Kestrel
+1 &lt; Transfer-Encoding: chunked
+[{&quot;id&quot;:1,&quot;codigo&quot;:&quot;A01&quot;,&quot;barrio&quot;:&quot;Las Heras&quot;,&quot;precio&quot;:55000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/90148510855725581387068537220317378814853086862078045508915704946102344015700.jpg&quot;,&quot;estado&quot;:2},{&quot;id&quot;:2,&quot;codigo&quot;:&quot;A02&quot;,&quot;barrio&quot;:&quot;Las Heras&quot;,&quot;precio&quot;:75000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/76545454326738379067409377005784535971307697001491666557053371854077101959430.jpg&quot;,&quot;estado&quot;:0},{&quot;id&quot;:3,&quot;codigo&quot;:&quot;B01&quot;,&quot;barrio&quot;:&quot;San Agustin&quot;,&quot;precio&quot;:30000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/3872458016635132489484026288948256622470774056461376442806554935593974715418.jpg&quot;,&quot;estado&quot;:0},{&quot;id&quot;:4,&quot;codigo&quot;:&quot;C01&quot;,&quot;barrio&quot;:&quot;Cristo Redentor&quot;,&quot;precio&quot;:90000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/76545454326738379067409377005784535971307697001491666557053371854077101959430.jpg&quot;,&quot;estado&quot;:0},{&quot;id&quot;:7,&quot;codigo&quot;:&quot;D02&quot;,&quot;barrio&quot;:&quot;Paracao&quot;,&quot;precio&quot;:90000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/90148510855725581387068537220317378814853086862078045508915704946102344015700.jpg&quot;,&quot;estado&quot;:2},{&quot;id&quot;:8,&quot;codigo&quot;:&quot;E01&quot;,&quot;barrio&quot;:&quot;Hipodromo&quot;,&quot;precio&quot;:60000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/90148510855725581387068537220317378814853086862078045508915704946102344015700.jpg&quot;,&quot;estado&quot;:1},{&quot;id&quot;:9,&quot;codigo&quot;:&quot;E02&quot;,&quot;barrio&quot;:&quot;Hipodromo&quot;,&quot;precio&quot;:130000.0,&quot;urlImagen&quot;:&quot;https://staticbp.com/img/prop_new_b/410/00410617-01.jpg&quot;,&quot;estado&quot;:2},{&quot;id&quot;:12,&quot;codigo&quot;:&quot;F01&quot;,&quot;barrio&quot;:&quot;Santa Lucia&quot;,&quot;precio&quot;:85000.0,&quot;urlImagen&quot;:&quot;https://static1.sosiva451.com/29570551/eaf8d988-767f-4fac-b28a-5015d4366b98_u_small.jpg&quot;,&quot;estado&quot;:0},{&quot;id&quot;:13,&quot;codigo&quot;:&quot;G01&quot;,&quot;barrio&quot;:&quot;Centro&quot;,&quot;precio&quot;:110000.0,&quot;urlImagen&quot;:&quot;https://static1.sosiva451.com/0586297/d08b6291-bf7d-46ae-ab37-67bde0a9f3f7_u_small.jpg&quot;,&quot;estado&quot;:0},{&quot;id&quot;:16,&quot;codigo&quot;:&quot;A03&quot;,&quot;barrio&quot;:&quot;Las Heras&quot;,&quot;precio&quot;:45000.0,&quot;urlImagen&quot;:&quot;https://static1.sosiva451.com/11952821/6c2c79ec-25bf-4e72-b81e-24f15c37b308_u_medium.jpg&quot;,&quot;estado&quot;:1},{&quot;id&quot;:17,&quot;codigo&quot;:&quot;M01&quot;,&quot;barrio&quot;:&quot;Parque&quot;,&quot;precio&quot;:120000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/52105576580114907554927162648075256308048417880951189647604551581336086051372.jpg&quot;,&quot;estado&quot;:0},{&quot;id&quot;:18,&quot;codigo&quot;:&quot;M01&quot;,&quot;barrio&quot;:&quot;Parque&quot;,&quot;precio&quot;:120000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/52105576580114907554927162648075256308048417880951189647604551581336086051372.jpg&quot;,&quot;estado&quot;:0}]
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.15">
+      <div class="step-ref passed">15</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">4</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[2:18]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[2:18]</span>
+                <span class="scenario-name">Obtener un Producto por Id</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>289</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[2:18]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[2:18]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure ssl = true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[2:18]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def urlPagina = &#39;http://localhost:5000/api&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">4</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[2:18]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def accessToken = &#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEzMjk2MjE4LCJleHAiOjE3MTMzODI2MTgsImlhdCI6MTcxMzI5NjIxOH0.YgnFYBl9DIgkxcVl3vhC8cq5iWghrpF_Kw1rnDAmVi4&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[2:18]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdProducto = 17;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.19">
+      <div class="step-ref passed">19</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url urlPagina + &#39;/Producto/&#39; + IdProducto</span>
+      </div>
+    </div>
+    <div class="time-cell passed">8</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.20">
+      <div class="step-ref passed">20</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = &#39;Bearer &#39; + accessToken</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.21">
+      <div class="step-ref passed">21</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method GET</span>
+      </div>
+    </div>
+    <div class="time-cell passed">270</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.21">16:46:47.323 request:
+1 &gt; GET http://localhost:5000/api/Producto/17
+1 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEzMjk2MjE4LCJleHAiOjE3MTMzODI2MTgsImlhdCI6MTcxMzI5NjIxOH0.YgnFYBl9DIgkxcVl3vhC8cq5iWghrpF_Kw1rnDAmVi4
+1 &gt; Host: localhost:5000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+16:46:47.585 response time in milliseconds: 259
+1 &lt; 200
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Date: Tue, 16 Apr 2024 19:46:46 GMT
+1 &lt; Server: Kestrel
+1 &lt; Transfer-Encoding: chunked
+{&quot;id&quot;:17,&quot;codigo&quot;:&quot;M01&quot;,&quot;barrio&quot;:&quot;Parque&quot;,&quot;precio&quot;:120000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/52105576580114907554927162648075256308048417880951189647604551581336086051372.jpg&quot;,&quot;estado&quot;:0}
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.22">
+      <div class="step-ref passed">22</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[3:25]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[3:25]</span>
+                <span class="scenario-name">Obtener todos los Productos disponibles para ser reservados</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>159</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[3:25]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[3:25]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure ssl = true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[3:25]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def urlPagina = &#39;http://localhost:5000/api&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[3:25]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def accessToken = &#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEzMjk2MjE4LCJleHAiOjE3MTMzODI2MTgsImlhdCI6MTcxMzI5NjIxOH0.YgnFYBl9DIgkxcVl3vhC8cq5iWghrpF_Kw1rnDAmVi4&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[3:25]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdProducto = 17;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.26">
+      <div class="step-ref passed">26</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url urlPagina + &#39;/Producto/Disponibles&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.27">
+      <div class="step-ref passed">27</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = &#39;Bearer &#39; + accessToken</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.28">
+      <div class="step-ref passed">28</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method GET</span>
+      </div>
+    </div>
+    <div class="time-cell passed">151</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.28">16:46:47.609 request:
+1 &gt; GET http://localhost:5000/api/Producto/Disponibles
+1 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEzMjk2MjE4LCJleHAiOjE3MTMzODI2MTgsImlhdCI6MTcxMzI5NjIxOH0.YgnFYBl9DIgkxcVl3vhC8cq5iWghrpF_Kw1rnDAmVi4
+1 &gt; Host: localhost:5000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+16:46:47.756 response time in milliseconds: 142
+1 &lt; 200
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Date: Tue, 16 Apr 2024 19:46:46 GMT
+1 &lt; Server: Kestrel
+1 &lt; Transfer-Encoding: chunked
+[{&quot;id&quot;:2,&quot;codigo&quot;:&quot;A02&quot;,&quot;barrio&quot;:&quot;Las Heras&quot;,&quot;precio&quot;:75000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/76545454326738379067409377005784535971307697001491666557053371854077101959430.jpg&quot;,&quot;estado&quot;:0},{&quot;id&quot;:3,&quot;codigo&quot;:&quot;B01&quot;,&quot;barrio&quot;:&quot;San Agustin&quot;,&quot;precio&quot;:30000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/3872458016635132489484026288948256622470774056461376442806554935593974715418.jpg&quot;,&quot;estado&quot;:0},{&quot;id&quot;:4,&quot;codigo&quot;:&quot;C01&quot;,&quot;barrio&quot;:&quot;Cristo Redentor&quot;,&quot;precio&quot;:90000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/76545454326738379067409377005784535971307697001491666557053371854077101959430.jpg&quot;,&quot;estado&quot;:0},{&quot;id&quot;:12,&quot;codigo&quot;:&quot;F01&quot;,&quot;barrio&quot;:&quot;Santa Lucia&quot;,&quot;precio&quot;:85000.0,&quot;urlImagen&quot;:&quot;https://static1.sosiva451.com/29570551/eaf8d988-767f-4fac-b28a-5015d4366b98_u_small.jpg&quot;,&quot;estado&quot;:0},{&quot;id&quot;:13,&quot;codigo&quot;:&quot;G01&quot;,&quot;barrio&quot;:&quot;Centro&quot;,&quot;precio&quot;:110000.0,&quot;urlImagen&quot;:&quot;https://static1.sosiva451.com/0586297/d08b6291-bf7d-46ae-ab37-67bde0a9f3f7_u_small.jpg&quot;,&quot;estado&quot;:0},{&quot;id&quot;:17,&quot;codigo&quot;:&quot;M01&quot;,&quot;barrio&quot;:&quot;Parque&quot;,&quot;precio&quot;:120000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/52105576580114907554927162648075256308048417880951189647604551581336086051372.jpg&quot;,&quot;estado&quot;:0},{&quot;id&quot;:18,&quot;codigo&quot;:&quot;M01&quot;,&quot;barrio&quot;:&quot;Parque&quot;,&quot;precio&quot;:120000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/52105576580114907554927162648075256308048417880951189647604551581336086051372.jpg&quot;,&quot;estado&quot;:0}]
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.29">
+      <div class="step-ref passed">29</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[4:32]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[4:32]</span>
+                <span class="scenario-name">Agregar Producto</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>434</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[4:32]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[4:32]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure ssl = true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[4:32]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def urlPagina = &#39;http://localhost:5000/api&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[4:32]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def accessToken = &#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEzMjk2MjE4LCJleHAiOjE3MTMzODI2MTgsImlhdCI6MTcxMzI5NjIxOH0.YgnFYBl9DIgkxcVl3vhC8cq5iWghrpF_Kw1rnDAmVi4&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[4:32]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdProducto = 17;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.33">
+      <div class="step-ref passed">33</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url urlPagina + &#39;/Producto&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.34">
+      <div class="step-ref passed">34</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request { &quot;codigo&quot;: &quot;M01&quot;,&quot;barrio&quot;: &quot;Parque&quot;,&quot;precio&quot;: 120000,&quot;urlImagen&quot;: &quot;https://static.tokkobroker.com/pictures/52105576580114907554927162648075256308048417880951189647604551581336086051372.jpg&quot; }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">29</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.35">
+      <div class="step-ref passed">35</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = &#39;Bearer &#39; + accessToken</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.36">
+      <div class="step-ref passed">36</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method POST</span>
+      </div>
+    </div>
+    <div class="time-cell passed">398</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.36">16:46:47.921 request:
+1 &gt; POST http://localhost:5000/api/Producto
+1 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEzMjk2MjE4LCJleHAiOjE3MTMzODI2MTgsImlhdCI6MTcxMzI5NjIxOH0.YgnFYBl9DIgkxcVl3vhC8cq5iWghrpF_Kw1rnDAmVi4
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 190
+1 &gt; Host: localhost:5000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;codigo&quot;:&quot;M01&quot;,&quot;barrio&quot;:&quot;Parque&quot;,&quot;precio&quot;:120000,&quot;urlImagen&quot;:&quot;https:\/\/static.tokkobroker.com\/pictures\/52105576580114907554927162648075256308048417880951189647604551581336086051372.jpg&quot;}
+
+16:46:48.199 response time in milliseconds: 276
+1 &lt; 201
+1 &lt; Content-Length: 0
+1 &lt; Date: Tue, 16 Apr 2024 19:46:47 GMT
+1 &lt; Server: Kestrel
+
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.37">
+      <div class="step-ref passed">37</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 201</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[5:40]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[5:40]</span>
+                <span class="scenario-name">Modificar un Producto</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>61</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[5:40]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[5:40]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure ssl = true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">3</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[5:40]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def urlPagina = &#39;http://localhost:5000/api&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[5:40]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def accessToken = &#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEzMjk2MjE4LCJleHAiOjE3MTMzODI2MTgsImlhdCI6MTcxMzI5NjIxOH0.YgnFYBl9DIgkxcVl3vhC8cq5iWghrpF_Kw1rnDAmVi4&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[5:40]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdProducto = 17;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.41">
+      <div class="step-ref passed">41</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url urlPagina + &#39;/Producto/&#39; + IdProducto</span>
+      </div>
+    </div>
+    <div class="time-cell passed">3</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.42">
+      <div class="step-ref passed">42</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request { &quot;codigo&quot;: &quot;M03&quot;,&quot;barrio&quot;: &quot;Parque&quot;,&quot;precio&quot;: 150000,&quot;urlImagen&quot;: &quot;https://static.tokkobroker.com/pictures/52105576580114907554927162648075256308048417880951189647604551581336086051372.jpg&quot; }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.43">
+      <div class="step-ref passed">43</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = &#39;Bearer &#39; + accessToken</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.44">
+      <div class="step-ref passed">44</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method PUT</span>
+      </div>
+    </div>
+    <div class="time-cell passed">49</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.44">16:46:48.228 request:
+1 &gt; PUT http://localhost:5000/api/Producto/17
+1 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEzMjk2MjE4LCJleHAiOjE3MTMzODI2MTgsImlhdCI6MTcxMzI5NjIxOH0.YgnFYBl9DIgkxcVl3vhC8cq5iWghrpF_Kw1rnDAmVi4
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 190
+1 &gt; Host: localhost:5000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;codigo&quot;:&quot;M03&quot;,&quot;barrio&quot;:&quot;Parque&quot;,&quot;precio&quot;:150000,&quot;urlImagen&quot;:&quot;https:\/\/static.tokkobroker.com\/pictures\/52105576580114907554927162648075256308048417880951189647604551581336086051372.jpg&quot;}
+
+16:46:48.270 response time in milliseconds: 40
+1 &lt; 200
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Date: Tue, 16 Apr 2024 19:46:47 GMT
+1 &lt; Server: Kestrel
+1 &lt; Transfer-Encoding: chunked
+{&quot;id&quot;:17,&quot;codigo&quot;:&quot;M03&quot;,&quot;barrio&quot;:&quot;Parque&quot;,&quot;precio&quot;:150000,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/52105576580114907554927162648075256308048417880951189647604551581336086051372.jpg&quot;,&quot;estado&quot;:0}
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.45">
+      <div class="step-ref passed">45</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[6:48]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[6:48]</span>
+                <span class="scenario-name">Eliminar Producto</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>80</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[6:48]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[6:48]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure ssl = true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[6:48]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def urlPagina = &#39;http://localhost:5000/api&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[6:48]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def accessToken = &#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEzMjk2MjE4LCJleHAiOjE3MTMzODI2MTgsImlhdCI6MTcxMzI5NjIxOH0.YgnFYBl9DIgkxcVl3vhC8cq5iWghrpF_Kw1rnDAmVi4&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[6:48]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdProducto = 17;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.49">
+      <div class="step-ref passed">49</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url urlPagina + &#39;/Producto/&#39; + IdProducto</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.50">
+      <div class="step-ref passed">50</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = &#39;Bearer &#39; + accessToken</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.51">
+      <div class="step-ref passed">51</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method DELETE</span>
+      </div>
+    </div>
+    <div class="time-cell passed">76</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.51">16:46:48.288 request:
+1 &gt; DELETE http://localhost:5000/api/Producto/17
+1 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEzMjk2MjE4LCJleHAiOjE3MTMzODI2MTgsImlhdCI6MTcxMzI5NjIxOH0.YgnFYBl9DIgkxcVl3vhC8cq5iWghrpF_Kw1rnDAmVi4
+1 &gt; Host: localhost:5000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+16:46:48.358 response time in milliseconds: 67
+1 &lt; 204
+1 &lt; Date: Tue, 16 Apr 2024 19:46:47 GMT
+1 &lt; Server: Kestrel
+
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.52">
+      <div class="step-ref passed">52</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 204</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

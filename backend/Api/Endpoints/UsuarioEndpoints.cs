@@ -62,6 +62,14 @@ public class UsuarioEndpoints : ICarterModule
             return Results.Ok("Rol asociado");
         }).WithTags("Usuario")
           .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
+        
+        app.MapDelete("/{userId:Guid}/RemoveRole/{roleId:Guid}", (IUsuarioService usuarioService, Guid userId, Guid roleId) =>
+        {
+            usuarioService.RemoveRoleToUser(roleId.ToString(), userId.ToString());
+
+            return Results.NoContent();
+        }).WithTags("Usuario")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
 
         app.MapGet("/RolesWithUsuarios", async (IUsuarioService usuarioService) =>
         {
@@ -69,13 +77,29 @@ public class UsuarioEndpoints : ICarterModule
 
             return Results.Ok(roles);
         }).WithTags("Usuario")
-          .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
+          .AllowAnonymous();
 
         app.MapGet("/UsuariosWithRoles", async (IUsuarioService usuarioService) =>
         {
             var usuarios = await usuarioService.GetUsersWithRoles();
 
             return Results.Ok(usuarios);
+        }).WithTags("Usuario")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
+
+        app.MapDelete("/{idUsuario}", (IUsuarioService usuarioService, string idUsuario) =>
+        {
+            usuarioService.DeleteUser(idUsuario);
+
+            return Results.NoContent();
+        }).WithTags("Usuario")
+          .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
+
+        app.MapDelete("/Role/{roleId}", (IUsuarioService usuarioService, string roleId) =>
+        {
+            usuarioService.DeleteRole(roleId);
+
+            return Results.NoContent();
         }).WithTags("Usuario")
           .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
 

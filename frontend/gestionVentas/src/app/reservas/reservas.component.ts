@@ -95,12 +95,10 @@ export class ReservasComponent implements OnInit, OnDestroy{
   }
 
   cancelarReserva(id:any){
-    this.reservasService.updateReserva(id, EstadoReserva.cancelada).subscribe();
+    this.reservasService.updateReserva(id, 3).subscribe();
   }
 
   removeData(id: number): void {
     this.reservasService.removeReserva(id).subscribe();
   }
-  
-
 }

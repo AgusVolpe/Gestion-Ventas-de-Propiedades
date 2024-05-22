@@ -43,8 +43,8 @@
         <mat-form-field class="mat-form-field">
             <mat-label>Estado</mat-label>
             <mat-select [(ngModel)]="estado" required>
-                <mat-option value="Aprobada">Aprobada</mat-option>
-                <mat-option value="Rechazada">Rechazada</mat-option>
+                <mat-option [value]="EstadoReserva.Aprobada">Aprobada</mat-option>
+                <mat-option [value]="EstadoReserva.Rechazada">Rechazada</mat-option>
             </mat-select>
         </mat-form-field>
         <mat-dialog-actions class="demo-button">

@@ -1,0 +1,3240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="res/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="res/karate-report.css" type="text/css"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script type="text/javascript" src="res/jquery.min.js"></script>
+    <script type="text/javascript" src="res/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="res/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="res/bootstrap.min.js"></script>
+    <script type="text/javascript" src="res/karate-report.js"></script>
+    <script type="text/javascript" src="res/Resemble.js"></script>
+    <script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
+  api_host:'https://app.posthog.com',
+  persistence:'localStorage',
+  autocapture:false,
+  capture_pageview:false,
+  api_transport:'sendBeacon',
+  loaded: function(posthog) { 
+    posthog.capture("report_feature",{distinct_id:"606c6886-50b5-4236-9bb1-252fed910707",karate_version:"1.4.1",karate_meta:null});
+  }
+});
+</script>
+
+    <title>testUsuarios</title>
+  </head>
+  <body>
+    <div id="root-container">
+      <div id="leftnav">
+        
+        <div>
+  <div class="nav-logo">
+    <a href="https://karatelabs.io">
+      <img src="karate-labs-logo-ring.svg" alt="Karate Labs"/>
+    </a>
+    <div class="nav-count">
+      <div id="nav-pass" class="bg-success">9</div>
+      <div id="nav-fail" class="bg-danger">0</div>
+    </div>
+  </div>
+  <div id="nav-env">
+    <div></div>
+  </div>
+  <div id="nav-type">
+    <div>Scenarios</div>
+  </div>
+  <div id="nav-date">
+    <div>2024-04-16 05:32:23 p. m.</div>
+  </div>
+</div>
+
+        <div class="nav-container">
+          <div class="nav-item passed">
+            <a href="#[1:14]"><span>[1:14]</span> <span>Obtener todos los Usuarios</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[2:21]"><span>[2:21]</span> <span>Obtener un Usuario por Id</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[3:28]"><span>[3:28]</span> <span>Obtener todos los Roles junto con los Usuarios que posean dicho rol</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[4:35]"><span>[4:35]</span> <span>Obtener todos los Usuarios junto con los Roles que posean dicho usuario</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[5:42]"><span>[5:42]</span> <span>Obtener reporte de Ventas por Usuario con rol Vendedor</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[6:49]"><span>[6:49]</span> <span>Registrarse</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[7:56]"><span>[7:56]</span> <span>Loguearse</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[8:63]"><span>[8:63]</span> <span>Agregar un nuevo Rol</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[9:70]"><span>[9:70]</span> <span>Agregar un nuevo Rol existente a un Usuario existente</span></a>
+          </div>
+        </div>
+      </div>
+      <div id="content">
+        <div class="page-heading alert alert-primary">
+          <a href="karate-summary.html">Summary</a><span class="feature-label">|</span>
+          <a href="karate-tags.html">Tags</a><span class="feature-label">|</span>
+          <span class="feature-label">Feature:</span>
+          <span class="feature-path">testUsuarios.feature</span><span class="feature-label">|</span>
+          <span class="feature-name">pruebas para usuarios</span>
+          <span class="feature-description"></span>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[1:14]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[1:14]</span>
+                <span class="scenario-name">Obtener todos los Usuarios</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>1228</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[1:14]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[1:14]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure ssl = true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">521</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[1:14]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def urlPagina = &#39;http://localhost:5000/api&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">7</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[1:14]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def accessToken = &#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[1:14]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioLogeado = &quot;f2e37e7f-eb53-4b43-a173-990d690111f3&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[1:14]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.9">
+      <div class="step-ref bg-step">9</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioCualquiera = &quot;7e8debbc-851c-4457-aaf4-28eb8a07977e&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[1:14]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.10">
+      <div class="step-ref bg-step">10</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdRoleExistente = &quot;9749b9d9-f4fc-4687-8e48-cc671577efb0&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[1:14]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.11">
+      <div class="step-ref bg-step">11</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def NombreNuevoRol = &quot;Ejecutivo&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.15">
+      <div class="step-ref passed">15</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url urlPagina + &#39;/Usuario&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">31</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.16">
+      <div class="step-ref passed">16</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = &#39;Bearer &#39; + accessToken</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.17">
+      <div class="step-ref passed">17</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method GET</span>
+      </div>
+    </div>
+    <div class="time-cell passed">657</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.17">17:32:21.409 request:
+1 &gt; GET http://localhost:5000/api/Usuario
+1 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM
+1 &gt; Host: localhost:5000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+17:32:21.832 response time in milliseconds: 413
+1 &lt; 200
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Date: Tue, 16 Apr 2024 20:32:21 GMT
+1 &lt; Server: Kestrel
+1 &lt; Transfer-Encoding: chunked
+[{&quot;id&quot;:&quot;21bf2bf6-3f5b-4a12-a460-05b4a6441f6d&quot;,&quot;email&quot;:&quot;admin@admin.com&quot;,&quot;reservas&quot;:[]},{&quot;id&quot;:&quot;7e8debbc-851c-4457-aaf4-28eb8a07977e&quot;,&quot;email&quot;:&quot;antonio@gmail.com&quot;,&quot;reservas&quot;:[{&quot;id&quot;:20,&quot;producto&quot;:{&quot;id&quot;:8,&quot;codigo&quot;:&quot;E01&quot;,&quot;barrio&quot;:&quot;Hipodromo&quot;,&quot;precio&quot;:60000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/90148510855725581387068537220317378814853086862078045508915704946102344015700.jpg&quot;,&quot;estado&quot;:1},&quot;nombreCliente&quot;:&quot;Facundo Chapur&quot;,&quot;estado&quot;:0},{&quot;id&quot;:24,&quot;producto&quot;:{&quot;id&quot;:9,&quot;codigo&quot;:&quot;E02&quot;,&quot;barrio&quot;:&quot;Hipodromo&quot;,&quot;precio&quot;:130000.0,&quot;urlImagen&quot;:&quot;https://staticbp.com/img/prop_new_b/410/00410617-01.jpg&quot;,&quot;estado&quot;:2},&quot;nombreCliente&quot;:&quot;Agustin Martinez&quot;,&quot;estado&quot;:2},{&quot;id&quot;:28,&quot;producto&quot;:{&quot;id&quot;:16,&quot;codigo&quot;:&quot;A03&quot;,&quot;barrio&quot;:&quot;Las Heras&quot;,&quot;precio&quot;:45000.0,&quot;urlImagen&quot;:&quot;https://static1.sosiva451.com/11952821/6c2c79ec-25bf-4e72-b81e-24f15c37b308_u_medium.jpg&quot;,&quot;estado&quot;:1},&quot;nombreCliente&quot;:&quot;Juan Jose Tomasello&quot;,&quot;estado&quot;:0}]},{&quot;id&quot;:&quot;ad399aa1-5e7d-4d12-997b-b89d76ecfcd1&quot;,&quot;email&quot;:&quot;julian@outlook.com&quot;,&quot;reservas&quot;:[]},{&quot;id&quot;:&quot;cb685581-8cc5-40e0-96e0-5d1f2e31791d&quot;,&quot;email&quot;:&quot;prueba@prueba.com&quot;,&quot;reservas&quot;:[]},{&quot;id&quot;:&quot;f2e37e7f-eb53-4b43-a173-990d690111f3&quot;,&quot;email&quot;:&quot;novit@novit.com&quot;,&quot;reservas&quot;:[]},{&quot;id&quot;:&quot;fa5002be-908d-4b7d-8170-07f4c6c9af43&quot;,&quot;email&quot;:&quot;agustin@gmail.com&quot;,&quot;reservas&quot;:[{&quot;id&quot;:1,&quot;producto&quot;:{&quot;id&quot;:1,&quot;codigo&quot;:&quot;A01&quot;,&quot;barrio&quot;:&quot;Las Heras&quot;,&quot;precio&quot;:55000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/90148510855725581387068537220317378814853086862078045508915704946102344015700.jpg&quot;,&quot;estado&quot;:2},&quot;nombreCliente&quot;:&quot;Joaquin Carrizo&quot;,&quot;estado&quot;:2},{&quot;id&quot;:2,&quot;producto&quot;:{&quot;id&quot;:3,&quot;codigo&quot;:&quot;B01&quot;,&quot;barrio&quot;:&quot;San Agustin&quot;,&quot;precio&quot;:30000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/3872458016635132489484026288948256622470774056461376442806554935593974715418.jpg&quot;,&quot;estado&quot;:0},&quot;nombreCliente&quot;:&quot;Jorge Barrios&quot;,&quot;estado&quot;:1},{&quot;id&quot;:3,&quot;producto&quot;:{&quot;id&quot;:4,&quot;codigo&quot;:&quot;C01&quot;,&quot;barrio&quot;:&quot;Cristo Redentor&quot;,&quot;precio&quot;:90000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/76545454326738379067409377005784535971307697001491666557053371854077101959430.jpg&quot;,&quot;estado&quot;:0},&quot;nombreCliente&quot;:&quot;Hernan Palazzo&quot;,&quot;estado&quot;:3},{&quot;id&quot;:17,&quot;producto&quot;:{&quot;id&quot;:7,&quot;codigo&quot;:&quot;D02&quot;,&quot;barrio&quot;:&quot;Paracao&quot;,&quot;precio&quot;:90000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/90148510855725581387068537220317378814853086862078045508915704946102344015700.jpg&quot;,&quot;estado&quot;:2},&quot;nombreCliente&quot;:&quot;Martin Serrano&quot;,&quot;estado&quot;:2}]},{&quot;id&quot;:&quot;fecfda91-9e3f-4a50-97dd-7da2ee11689b&quot;,&quot;email&quot;:&quot;paula@hotmail.com&quot;,&quot;reservas&quot;:[]}]
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.18">
+      <div class="step-ref passed">18</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">4</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[2:21]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[2:21]</span>
+                <span class="scenario-name">Obtener un Usuario por Id</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>50</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[2:21]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[2:21]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure ssl = true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">3</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[2:21]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def urlPagina = &#39;http://localhost:5000/api&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[2:21]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def accessToken = &#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[2:21]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioLogeado = &quot;f2e37e7f-eb53-4b43-a173-990d690111f3&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[2:21]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.9">
+      <div class="step-ref bg-step">9</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioCualquiera = &quot;7e8debbc-851c-4457-aaf4-28eb8a07977e&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[2:21]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.10">
+      <div class="step-ref bg-step">10</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdRoleExistente = &quot;9749b9d9-f4fc-4687-8e48-cc671577efb0&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[2:21]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.11">
+      <div class="step-ref bg-step">11</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def NombreNuevoRol = &quot;Ejecutivo&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.22">
+      <div class="step-ref passed">22</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url urlPagina + &#39;/Usuario/&#39; + IdUsuarioCualquiera</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.23">
+      <div class="step-ref passed">23</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = &#39;Bearer &#39; + accessToken</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.24">
+      <div class="step-ref passed">24</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method GET</span>
+      </div>
+    </div>
+    <div class="time-cell passed">39</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.24">17:32:21.913 request:
+1 &gt; GET http://localhost:5000/api/Usuario/7e8debbc-851c-4457-aaf4-28eb8a07977e
+1 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM
+1 &gt; Host: localhost:5000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+17:32:21.946 response time in milliseconds: 30
+1 &lt; 200
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Date: Tue, 16 Apr 2024 20:32:21 GMT
+1 &lt; Server: Kestrel
+1 &lt; Transfer-Encoding: chunked
+{&quot;id&quot;:&quot;7e8debbc-851c-4457-aaf4-28eb8a07977e&quot;,&quot;email&quot;:&quot;antonio@gmail.com&quot;,&quot;reservas&quot;:[{&quot;id&quot;:20,&quot;producto&quot;:{&quot;id&quot;:8,&quot;codigo&quot;:&quot;E01&quot;,&quot;barrio&quot;:&quot;Hipodromo&quot;,&quot;precio&quot;:60000.0,&quot;urlImagen&quot;:&quot;https://static.tokkobroker.com/pictures/90148510855725581387068537220317378814853086862078045508915704946102344015700.jpg&quot;,&quot;estado&quot;:1},&quot;nombreCliente&quot;:&quot;Facundo Chapur&quot;,&quot;estado&quot;:0},{&quot;id&quot;:24,&quot;producto&quot;:{&quot;id&quot;:9,&quot;codigo&quot;:&quot;E02&quot;,&quot;barrio&quot;:&quot;Hipodromo&quot;,&quot;precio&quot;:130000.0,&quot;urlImagen&quot;:&quot;https://staticbp.com/img/prop_new_b/410/00410617-01.jpg&quot;,&quot;estado&quot;:2},&quot;nombreCliente&quot;:&quot;Agustin Martinez&quot;,&quot;estado&quot;:2},{&quot;id&quot;:28,&quot;producto&quot;:{&quot;id&quot;:16,&quot;codigo&quot;:&quot;A03&quot;,&quot;barrio&quot;:&quot;Las Heras&quot;,&quot;precio&quot;:45000.0,&quot;urlImagen&quot;:&quot;https://static1.sosiva451.com/11952821/6c2c79ec-25bf-4e72-b81e-24f15c37b308_u_medium.jpg&quot;,&quot;estado&quot;:1},&quot;nombreCliente&quot;:&quot;Juan Jose Tomasello&quot;,&quot;estado&quot;:0}]}
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.25">
+      <div class="step-ref passed">25</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[3:28]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[3:28]</span>
+                <span class="scenario-name">Obtener todos los Roles junto con los Usuarios que posean dicho rol</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>74</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[3:28]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[3:28]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure ssl = true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[3:28]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def urlPagina = &#39;http://localhost:5000/api&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[3:28]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def accessToken = &#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[3:28]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioLogeado = &quot;f2e37e7f-eb53-4b43-a173-990d690111f3&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[3:28]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.9">
+      <div class="step-ref bg-step">9</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioCualquiera = &quot;7e8debbc-851c-4457-aaf4-28eb8a07977e&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[3:28]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.10">
+      <div class="step-ref bg-step">10</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdRoleExistente = &quot;9749b9d9-f4fc-4687-8e48-cc671577efb0&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[3:28]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.11">
+      <div class="step-ref bg-step">11</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def NombreNuevoRol = &quot;Ejecutivo&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.29">
+      <div class="step-ref passed">29</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url urlPagina + &#39;/Usuario/RolesWithUsuarios&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.30">
+      <div class="step-ref passed">30</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = &#39;Bearer &#39; + accessToken</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.31">
+      <div class="step-ref passed">31</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method GET</span>
+      </div>
+    </div>
+    <div class="time-cell passed">68</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.31">17:32:21.970 request:
+1 &gt; GET http://localhost:5000/api/Usuario/RolesWithUsuarios
+1 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM
+1 &gt; Host: localhost:5000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+17:32:22.031 response time in milliseconds: 57
+1 &lt; 200
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Date: Tue, 16 Apr 2024 20:32:21 GMT
+1 &lt; Server: Kestrel
+1 &lt; Transfer-Encoding: chunked
+[{&quot;id&quot;:&quot;a921ea6b-358d-4362-9324-674cfa0f6f66&quot;,&quot;name&quot;:&quot;Admin&quot;,&quot;usuarios&quot;:[{&quot;id&quot;:&quot;fa5002be-908d-4b7d-8170-07f4c6c9af43&quot;,&quot;email&quot;:&quot;agustin@gmail.com&quot;},{&quot;id&quot;:&quot;21bf2bf6-3f5b-4a12-a460-05b4a6441f6d&quot;,&quot;email&quot;:&quot;admin@admin.com&quot;},{&quot;id&quot;:&quot;f2e37e7f-eb53-4b43-a173-990d690111f3&quot;,&quot;email&quot;:&quot;novit@novit.com&quot;}]},{&quot;id&quot;:&quot;6ec656ea-5773-4b09-8c77-4d5366580363&quot;,&quot;name&quot;:&quot;Vendedor&quot;,&quot;usuarios&quot;:[{&quot;id&quot;:&quot;fa5002be-908d-4b7d-8170-07f4c6c9af43&quot;,&quot;email&quot;:&quot;agustin@gmail.com&quot;},{&quot;id&quot;:&quot;7e8debbc-851c-4457-aaf4-28eb8a07977e&quot;,&quot;email&quot;:&quot;antonio@gmail.com&quot;}]},{&quot;id&quot;:&quot;9749b9d9-f4fc-4687-8e48-cc671577efb0&quot;,&quot;name&quot;:&quot;Comercial&quot;,&quot;usuarios&quot;:[{&quot;id&quot;:&quot;fecfda91-9e3f-4a50-97dd-7da2ee11689b&quot;,&quot;email&quot;:&quot;paula@hotmail.com&quot;},{&quot;id&quot;:&quot;ad399aa1-5e7d-4d12-997b-b89d76ecfcd1&quot;,&quot;email&quot;:&quot;julian@outlook.com&quot;},{&quot;id&quot;:&quot;7e8debbc-851c-4457-aaf4-28eb8a07977e&quot;,&quot;email&quot;:&quot;antonio@gmail.com&quot;},{&quot;id&quot;:&quot;cb685581-8cc5-40e0-96e0-5d1f2e31791d&quot;,&quot;email&quot;:&quot;prueba@prueba.com&quot;}]},{&quot;id&quot;:&quot;574c1198-7b77-4925-9185-4bbd2ee86718&quot;,&quot;name&quot;:&quot;Ejecutivo&quot;,&quot;usuarios&quot;:[]}]
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.32">
+      <div class="step-ref passed">32</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[4:35]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[4:35]</span>
+                <span class="scenario-name">Obtener todos los Usuarios junto con los Roles que posean dicho usuario</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>87</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[4:35]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[4:35]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure ssl = true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">3</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[4:35]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def urlPagina = &#39;http://localhost:5000/api&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[4:35]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def accessToken = &#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[4:35]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioLogeado = &quot;f2e37e7f-eb53-4b43-a173-990d690111f3&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[4:35]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.9">
+      <div class="step-ref bg-step">9</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioCualquiera = &quot;7e8debbc-851c-4457-aaf4-28eb8a07977e&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[4:35]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.10">
+      <div class="step-ref bg-step">10</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdRoleExistente = &quot;9749b9d9-f4fc-4687-8e48-cc671577efb0&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[4:35]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.11">
+      <div class="step-ref bg-step">11</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def NombreNuevoRol = &quot;Ejecutivo&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.36">
+      <div class="step-ref passed">36</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url urlPagina + &#39;/Usuario/UsuariosWithRoles&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.37">
+      <div class="step-ref passed">37</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = &#39;Bearer &#39; + accessToken</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.38">
+      <div class="step-ref passed">38</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method GET</span>
+      </div>
+    </div>
+    <div class="time-cell passed">76</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.38">17:32:22.068 request:
+1 &gt; GET http://localhost:5000/api/Usuario/UsuariosWithRoles
+1 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM
+1 &gt; Host: localhost:5000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+17:32:22.135 response time in milliseconds: 64
+1 &lt; 200
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Date: Tue, 16 Apr 2024 20:32:21 GMT
+1 &lt; Server: Kestrel
+1 &lt; Transfer-Encoding: chunked
+[{&quot;id&quot;:&quot;fa5002be-908d-4b7d-8170-07f4c6c9af43&quot;,&quot;email&quot;:&quot;agustin@gmail.com&quot;,&quot;roles&quot;:[{&quot;id&quot;:&quot;6ec656ea-5773-4b09-8c77-4d5366580363&quot;,&quot;name&quot;:&quot;Vendedor&quot;},{&quot;id&quot;:&quot;a921ea6b-358d-4362-9324-674cfa0f6f66&quot;,&quot;name&quot;:&quot;Admin&quot;}]},{&quot;id&quot;:&quot;fecfda91-9e3f-4a50-97dd-7da2ee11689b&quot;,&quot;email&quot;:&quot;paula@hotmail.com&quot;,&quot;roles&quot;:[{&quot;id&quot;:&quot;9749b9d9-f4fc-4687-8e48-cc671577efb0&quot;,&quot;name&quot;:&quot;Comercial&quot;}]},{&quot;id&quot;:&quot;7e8debbc-851c-4457-aaf4-28eb8a07977e&quot;,&quot;email&quot;:&quot;antonio@gmail.com&quot;,&quot;roles&quot;:[{&quot;id&quot;:&quot;6ec656ea-5773-4b09-8c77-4d5366580363&quot;,&quot;name&quot;:&quot;Vendedor&quot;},{&quot;id&quot;:&quot;9749b9d9-f4fc-4687-8e48-cc671577efb0&quot;,&quot;name&quot;:&quot;Comercial&quot;}]},{&quot;id&quot;:&quot;ad399aa1-5e7d-4d12-997b-b89d76ecfcd1&quot;,&quot;email&quot;:&quot;julian@outlook.com&quot;,&quot;roles&quot;:[{&quot;id&quot;:&quot;9749b9d9-f4fc-4687-8e48-cc671577efb0&quot;,&quot;name&quot;:&quot;Comercial&quot;}]},{&quot;id&quot;:&quot;21bf2bf6-3f5b-4a12-a460-05b4a6441f6d&quot;,&quot;email&quot;:&quot;admin@admin.com&quot;,&quot;roles&quot;:[{&quot;id&quot;:&quot;a921ea6b-358d-4362-9324-674cfa0f6f66&quot;,&quot;name&quot;:&quot;Admin&quot;}]},{&quot;id&quot;:&quot;f2e37e7f-eb53-4b43-a173-990d690111f3&quot;,&quot;email&quot;:&quot;novit@novit.com&quot;,&quot;roles&quot;:[{&quot;id&quot;:&quot;a921ea6b-358d-4362-9324-674cfa0f6f66&quot;,&quot;name&quot;:&quot;Admin&quot;}]},{&quot;id&quot;:&quot;cb685581-8cc5-40e0-96e0-5d1f2e31791d&quot;,&quot;email&quot;:&quot;prueba@prueba.com&quot;,&quot;roles&quot;:[{&quot;id&quot;:&quot;9749b9d9-f4fc-4687-8e48-cc671577efb0&quot;,&quot;name&quot;:&quot;Comercial&quot;}]}]
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.39">
+      <div class="step-ref passed">39</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[5:42]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[5:42]</span>
+                <span class="scenario-name">Obtener reporte de Ventas por Usuario con rol Vendedor</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>52</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[5:42]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[5:42]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure ssl = true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[5:42]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def urlPagina = &#39;http://localhost:5000/api&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[5:42]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def accessToken = &#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[5:42]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioLogeado = &quot;f2e37e7f-eb53-4b43-a173-990d690111f3&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[5:42]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.9">
+      <div class="step-ref bg-step">9</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioCualquiera = &quot;7e8debbc-851c-4457-aaf4-28eb8a07977e&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[5:42]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.10">
+      <div class="step-ref bg-step">10</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdRoleExistente = &quot;9749b9d9-f4fc-4687-8e48-cc671577efb0&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[5:42]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.11">
+      <div class="step-ref bg-step">11</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def NombreNuevoRol = &quot;Ejecutivo&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.43">
+      <div class="step-ref passed">43</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url urlPagina + &#39;/Usuario/ReporteVendedores&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.44">
+      <div class="step-ref passed">44</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = &#39;Bearer &#39; + accessToken</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.45">
+      <div class="step-ref passed">45</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method GET</span>
+      </div>
+    </div>
+    <div class="time-cell passed">41</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.45">17:32:22.161 request:
+1 &gt; GET http://localhost:5000/api/Usuario/ReporteVendedores
+1 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM
+1 &gt; Host: localhost:5000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+17:32:22.197 response time in milliseconds: 33
+1 &lt; 200
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Date: Tue, 16 Apr 2024 20:32:21 GMT
+1 &lt; Server: Kestrel
+1 &lt; Transfer-Encoding: chunked
+[{&quot;name&quot;:&quot;agustin@gmail.com&quot;,&quot;value&quot;:2},{&quot;name&quot;:&quot;antonio@gmail.com&quot;,&quot;value&quot;:1}]
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.46">
+      <div class="step-ref passed">46</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[6:49]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[6:49]</span>
+                <span class="scenario-name">Registrarse</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>872</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[6:49]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[6:49]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure ssl = true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">4</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[6:49]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def urlPagina = &#39;http://localhost:5000/api&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[6:49]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def accessToken = &#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[6:49]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioLogeado = &quot;f2e37e7f-eb53-4b43-a173-990d690111f3&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[6:49]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.9">
+      <div class="step-ref bg-step">9</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioCualquiera = &quot;7e8debbc-851c-4457-aaf4-28eb8a07977e&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[6:49]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.10">
+      <div class="step-ref bg-step">10</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdRoleExistente = &quot;9749b9d9-f4fc-4687-8e48-cc671577efb0&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[6:49]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.11">
+      <div class="step-ref bg-step">11</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def NombreNuevoRol = &quot;Ejecutivo&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.50">
+      <div class="step-ref passed">50</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url urlPagina + &#39;/Usuario/Registro&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">3</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.51">
+      <div class="step-ref passed">51</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request { &quot;email&quot;: &quot;prueba1@prueba1.com&quot;,&quot;password&quot;: &quot;Prueba1_1&quot;,&quot;role&quot;: &quot;Comercial&quot; }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">39</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.52">
+      <div class="step-ref passed">52</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method POST</span>
+      </div>
+    </div>
+    <div class="time-cell passed">820</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.52">17:32:22.398 request:
+1 &gt; POST http://localhost:5000/api/Usuario/Registro
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 73
+1 &gt; Host: localhost:5000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;email&quot;:&quot;prueba1@prueba1.com&quot;,&quot;password&quot;:&quot;Prueba1_1&quot;,&quot;role&quot;:&quot;Comercial&quot;}
+
+17:32:23.081 response time in milliseconds: 682
+1 &lt; 201
+1 &lt; Content-Length: 0
+1 &lt; Date: Tue, 16 Apr 2024 20:32:22 GMT
+1 &lt; Server: Kestrel
+
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.53">
+      <div class="step-ref passed">53</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 201</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[7:56]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[7:56]</span>
+                <span class="scenario-name">Loguearse</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>187</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[7:56]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[7:56]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure ssl = true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">4</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[7:56]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def urlPagina = &#39;http://localhost:5000/api&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[7:56]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def accessToken = &#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">3</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[7:56]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioLogeado = &quot;f2e37e7f-eb53-4b43-a173-990d690111f3&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[7:56]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.9">
+      <div class="step-ref bg-step">9</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioCualquiera = &quot;7e8debbc-851c-4457-aaf4-28eb8a07977e&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[7:56]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.10">
+      <div class="step-ref bg-step">10</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdRoleExistente = &quot;9749b9d9-f4fc-4687-8e48-cc671577efb0&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[7:56]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.11">
+      <div class="step-ref bg-step">11</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def NombreNuevoRol = &quot;Ejecutivo&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.57">
+      <div class="step-ref passed">57</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url urlPagina + &#39;/Usuario/Login&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.58">
+      <div class="step-ref passed">58</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request { &quot;email&quot;: &quot;prueba1@prueba1.com&quot;,&quot;password&quot;: &quot;Prueba1_1&quot; }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.59">
+      <div class="step-ref passed">59</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method POST</span>
+      </div>
+    </div>
+    <div class="time-cell passed">170</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.59">17:32:23.111 request:
+1 &gt; POST http://localhost:5000/api/Usuario/Login
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 54
+1 &gt; Host: localhost:5000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;email&quot;:&quot;prueba1@prueba1.com&quot;,&quot;password&quot;:&quot;Prueba1_1&quot;}
+
+17:32:23.278 response time in milliseconds: 162
+1 &lt; 200
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Date: Tue, 16 Apr 2024 20:32:22 GMT
+1 &lt; Server: Kestrel
+1 &lt; Transfer-Encoding: chunked
+{&quot;accessToken&quot;:&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI4OGYyMTc3Yi1kNTFhLTRhNmYtYTMzMy01NWRhOTYzZjY5MGUiLCJlbWFpbCI6InBydWViYTFAcHJ1ZWJhMS5jb20iLCJyb2xlIjoiQ29tZXJjaWFsIiwibmJmIjoxNzEzMjk5NTQzLCJleHAiOjE3MTMzODU5NDMsImlhdCI6MTcxMzI5OTU0M30.uKglvzs6Y6FM6RzZAGgzosIDCxGl_OK5192uLcMsdis&quot;}
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.60">
+      <div class="step-ref passed">60</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[8:63]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[8:63]</span>
+                <span class="scenario-name">Agregar un nuevo Rol</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>51</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[8:63]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[8:63]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure ssl = true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">3</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[8:63]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def urlPagina = &#39;http://localhost:5000/api&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[8:63]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def accessToken = &#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[8:63]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioLogeado = &quot;f2e37e7f-eb53-4b43-a173-990d690111f3&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[8:63]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.9">
+      <div class="step-ref bg-step">9</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioCualquiera = &quot;7e8debbc-851c-4457-aaf4-28eb8a07977e&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[8:63]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.10">
+      <div class="step-ref bg-step">10</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdRoleExistente = &quot;9749b9d9-f4fc-4687-8e48-cc671577efb0&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[8:63]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.11">
+      <div class="step-ref bg-step">11</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def NombreNuevoRol = &quot;Ejecutivo&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.64">
+      <div class="step-ref passed">64</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url urlPagina + &#39;/Usuario/Role?roleName=&#39; + NombreNuevoRol</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.65">
+      <div class="step-ref passed">65</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = &#39;Bearer &#39; + accessToken</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.66">
+      <div class="step-ref passed">66</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method POST</span>
+      </div>
+    </div>
+    <div class="time-cell passed">42</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.66">17:32:23.306 request:
+1 &gt; POST http://localhost:5000/api/Usuario/Role?roleName=Ejecutivo
+1 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM
+1 &gt; Host: localhost:5000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+17:32:23.338 response time in milliseconds: 27
+1 &lt; 201
+1 &lt; Content-Length: 0
+1 &lt; Date: Tue, 16 Apr 2024 20:32:23 GMT
+1 &lt; Server: Kestrel
+
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.67">
+      <div class="step-ref passed">67</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 201</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[9:70]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[9:70]</span>
+                <span class="scenario-name">Agregar un nuevo Rol existente a un Usuario existente</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>55</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[9:70]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[9:70]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure ssl = true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">5</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[9:70]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def urlPagina = &#39;http://localhost:5000/api&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[9:70]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def accessToken = &#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[9:70]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioLogeado = &quot;f2e37e7f-eb53-4b43-a173-990d690111f3&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[9:70]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.9">
+      <div class="step-ref bg-step">9</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdUsuarioCualquiera = &quot;7e8debbc-851c-4457-aaf4-28eb8a07977e&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[9:70]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.10">
+      <div class="step-ref bg-step">10</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def IdRoleExistente = &quot;9749b9d9-f4fc-4687-8e48-cc671577efb0&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[9:70]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.11">
+      <div class="step-ref bg-step">11</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def NombreNuevoRol = &quot;Ejecutivo&quot;;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.71">
+      <div class="step-ref passed">71</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url urlPagina + &#39;/Usuario/&#39; + IdUsuarioCualquiera + &#39;/AddRole/&#39; + IdRoleExistente</span>
+      </div>
+    </div>
+    <div class="time-cell passed">3</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.72">
+      <div class="step-ref passed">72</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = &#39;Bearer &#39; + accessToken</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.73">
+      <div class="step-ref passed">73</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method POST</span>
+      </div>
+    </div>
+    <div class="time-cell passed">42</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.73">17:32:23.373 request:
+1 &gt; POST http://localhost:5000/api/Usuario/7e8debbc-851c-4457-aaf4-28eb8a07977e/AddRole/9749b9d9-f4fc-4687-8e48-cc671577efb0
+1 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM
+1 &gt; Host: localhost:5000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+17:32:23.409 response time in milliseconds: 31
+1 &lt; 200
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Date: Tue, 16 Apr 2024 20:32:23 GMT
+1 &lt; Server: Kestrel
+1 &lt; Transfer-Encoding: chunked
+&quot;Rol asociado&quot;
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.74">
+      <div class="step-ref passed">74</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
+import { UsuariosService } from '../usuarios/usuarios.service';
 
 @Component({
   selector: 'app-reportes',
@@ -9,7 +9,7 @@ import { AuthService } from '../auth/auth.service';
 export class ReportesComponent implements OnInit {
   title: string = 'Seccion Reportes';
 
-  private authService = inject(AuthService);
+  private usuariosService = inject(UsuariosService);
 
   ngOnInit(): void {
     this.getReporte();  
@@ -27,7 +27,7 @@ export class ReportesComponent implements OnInit {
   yAxisLabel = 'Total Ventas';
 
   getReporte(){
-    this.authService.getReporte().subscribe(resultado => {
+    this.usuariosService.getReporte().subscribe(resultado => {
       this.salesData = resultado;
     })
   }

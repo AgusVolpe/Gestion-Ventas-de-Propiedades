@@ -20,7 +20,7 @@ import { ModalProductosComponent } from './modal-productos/modal-productos.compo
   ],
 })
 export class ProductosComponent implements OnInit, OnDestroy {
-  title: string = 'Seccion Productos'
+  title: string = 'Seccion Productos';
   
   subscription$!: Subscription;
   private productosService = inject(ProductosService);

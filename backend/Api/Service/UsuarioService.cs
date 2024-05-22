@@ -17,6 +17,9 @@ public interface IUsuarioService
     Task<string> Login(UsuarioLoginDTO usuarioLoginDTO);
     void CreateRole(string roleName);
     void AddRoleToUser(string roleId, string userId);
+    void RemoveRoleToUser(string roleId, string userId);
+    void DeleteUser(string userId);
+    void DeleteRole(string roleId);
 }
 
 public class UsuarioService(IUsuarioRepository usuarioRepository) : IUsuarioService
@@ -29,11 +32,31 @@ public class UsuarioService(IUsuarioRepository usuarioRepository) : IUsuarioServ
             throw new Exception("Usuario no encontrado");
         }
         usuarioRepository.AddRoleToUser(roleId,usuario);
+    } 
+    
+    public async void RemoveRoleToUser(string roleId, string userId)
+    {
+        var usuario = await usuarioRepository.GetUsuario(userId);
+        if (usuario is null)
+        {
+            throw new Exception("Usuario no encontrado");
+        }
+        await usuarioRepository.RemoveRoleToUser(roleId,usuario);
     }
 
     public void CreateRole(string roleName)
     {
         usuarioRepository.AddRole(roleName);
+    }
+
+    public void DeleteUser(string userId)
+    {
+        usuarioRepository.RemoveUser(userId);
+    }
+    
+    public void DeleteRole(string roleId)
+    {
+        usuarioRepository.RemoveRole(roleId);
     }
 
     public async Task<List<UsuarioReporteDTO>> GetReporte()

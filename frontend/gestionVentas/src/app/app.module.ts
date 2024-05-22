@@ -11,16 +11,18 @@ import { MaterialModule } from './shared/material/material.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { ReportesModule } from './reportes/reportes.module';
 import { FormsModule } from '@angular/forms';
+import { UsuariosModule } from './usuarios/usuarios.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [ 
     BrowserModule,
     AppRoutingModule,
     ProductosModule,
     ReservasModule,
+    UsuariosModule,
     NavbarModule,
     ReportesModule,
     HttpClientModule,

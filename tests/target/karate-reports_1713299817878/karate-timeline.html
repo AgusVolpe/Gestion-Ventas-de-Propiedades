@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"testUsuarios[1:14]","start":1713299540632,"end":1713299541885,"title":"testUsuarios[1:14] 17:32:20.632-17:32:21.885 Obtener todos los Usuarios"},{"id":2,"group":1,"content":"testUsuarios[2:21]","start":1713299541895,"end":1713299541946,"title":"testUsuarios[2:21] 17:32:21.895-17:32:21.946 Obtener un Usuario por Id"},{"id":3,"group":1,"content":"testUsuarios[3:28]","start":1713299541957,"end":1713299542033,"title":"testUsuarios[3:28] 17:32:21.957-17:32:22.033 Obtener todos los Roles junto con los Usuarios que posean dicho rol"},{"id":4,"group":1,"content":"testUsuarios[4:35]","start":1713299542046,"end":1713299542136,"title":"testUsuarios[4:35] 17:32:22.046-17:32:22.136 Obtener todos los Usuarios junto con los Roles que posean dicho usuario"},{"id":5,"group":1,"content":"testUsuarios[5:42]","start":1713299542144,"end":1713299542197,"title":"testUsuarios[5:42] 17:32:22.144-17:32:22.197 Obtener reporte de Ventas por Usuario con rol Vendedor"},{"id":6,"group":1,"content":"testUsuarios[6:49]","start":1713299542208,"end":1713299543082,"title":"testUsuarios[6:49] 17:32:22.208-17:32:23.082 Registrarse"},{"id":7,"group":1,"content":"testUsuarios[7:56]","start":1713299543090,"end":1713299543279,"title":"testUsuarios[7:56] 17:32:23.090-17:32:23.279 Loguearse"},{"id":8,"group":1,"content":"testUsuarios[8:63]","start":1713299543288,"end":1713299543341,"title":"testUsuarios[8:63] 17:32:23.288-17:32:23.341 Agregar un nuevo Rol"},{"id":9,"group":1,"content":"testUsuarios[9:70]","start":1713299543352,"end":1713299543409,"title":"testUsuarios[9:70] 17:32:23.352-17:32:23.409 Agregar un nuevo Rol existente a un Usuario existente"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

@@ -4,7 +4,7 @@ Background:
 
 * configure ssl = true
 * def urlPagina = 'http://localhost:5000/api'
-* def accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMjM2MDM4MCwiZXhwIjoxNzEyNDQ2NzgwLCJpYXQiOjE3MTIzNjAzODB9.vhe4EXS9L9aH_zc9lYa1eP9is6K28IIbutY9gDUgH80'
+* def accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJmMmUzN2U3Zi1lYjUzLTRiNDMtYTE3My05OTBkNjkwMTExZjMiLCJlbWFpbCI6Im5vdml0QG5vdml0LmNvbSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTcxMzI5OTE1OCwiZXhwIjoxNzEzMzg1NTU4LCJpYXQiOjE3MTMyOTkxNTh9.seBRq8y99CGOo_TQU1Yxd8gLp1UW2O7VLZgP9MIZ8MM'
 * def IdUsuarioLogeado = "f2e37e7f-eb53-4b43-a173-990d690111f3";
 * def IdUsuarioCualquiera = "7e8debbc-851c-4457-aaf4-28eb8a07977e";
 * def IdRoleExistente = "9749b9d9-f4fc-4687-8e48-cc671577efb0";
@@ -48,14 +48,14 @@ Then status 200
 
 Scenario: Registrarse
 Given url urlPagina + '/Usuario/Registro'
-And request { "email": "prueba@prueba.com","password": "Prueba_1","role": "Comercial" }
+And request { "email": "prueba1@prueba1.com","password": "Prueba1_1","role": "Comercial" }
 When method POST
 Then status 201
 
 
 Scenario: Loguearse
 Given url urlPagina + '/Usuario/Login'
-And request { "email": "prueba@prueba.com","password": "Prueba_1" }
+And request { "email": "prueba1@prueba1.com","password": "Prueba1_1" }
 When method POST
 Then status 200
 

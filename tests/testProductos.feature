@@ -4,9 +4,8 @@ Background:
 
 * configure ssl = true
 * def urlPagina = 'http://localhost:5000/api'
-* def accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEyMzU3ODE3LCJleHAiOjE3MTI0NDQyMTcsImlhdCI6MTcxMjM1NzgxN30.V3XChL4Y6KPtbF4GdOhPXpQT5_g5KJRQzA8PP-nA3-I'
-* def IdProducto = 6;
-* def IdUsuarioLogeado = "7e8debbc-851c-4457-aaf4-28eb8a07977e";
+* def accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3ZThkZWJiYy04NTFjLTQ0NTctYWFmNC0yOGViOGEwNzk3N2UiLCJlbWFpbCI6ImFudG9uaW9AZ21haWwuY29tIiwicm9sZSI6IlZlbmRlZG9yIiwibmJmIjoxNzEzMjk2MjE4LCJleHAiOjE3MTMzODI2MTgsImlhdCI6MTcxMzI5NjIxOH0.YgnFYBl9DIgkxcVl3vhC8cq5iWghrpF_Kw1rnDAmVi4'
+* def IdProducto = 17;
 
 
 Scenario: Obtener todos los Productos
@@ -38,7 +37,7 @@ When method POST
 Then status 201
 
 
-Scenario: Modificar Estado de Reserva
+Scenario: Modificar un Producto
 Given url urlPagina + '/Producto/' + IdProducto
 And request { "codigo": "M03","barrio": "Parque","precio": 150000,"urlImagen": "https://static.tokkobroker.com/pictures/52105576580114907554927162648075256308048417880951189647604551581336086051372.jpg" }
 And  header Authorization = 'Bearer ' + accessToken

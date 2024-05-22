@@ -1,0 +1,85 @@
+<h2 class="usuarios-title">{{ title }}</h2>
+
+<table mat-table [dataSource]="usuarios" class="mat-elevation-z8">
+  <ng-container matColumnDef="usuario">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;" [attr.rowspan]="2">Usuario</th>
+    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ingresadas">
+    <th mat-header-cell *matHeaderCellDef>Ingresadas</th>
+    <td mat-cell *matCellDef="let element" style="text-align: center;">{{getCantReservas(element)[0]}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="aprobadas">
+    <th mat-header-cell *matHeaderCellDef>Aprobadas</th>
+    <td mat-cell *matCellDef="let element" style="text-align: center;">{{getCantReservas(element)[1]}}</td>
+  </ng-container>
+  
+  <ng-container matColumnDef="rechazadas">
+    <th mat-header-cell *matHeaderCellDef>Rechazadas</th>
+    <td mat-cell *matCellDef="let element" style="text-align: center;">{{getCantReservas(element)[2]}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="canceladas">
+    <th mat-header-cell *matHeaderCellDef>Canceladas</th>
+    <td mat-cell *matCellDef="let element" style="text-align: center;">{{getCantReservas(element)[3]}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="totalVentas">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;" [attr.rowspan]="2">Total Vendido</th>
+    <td mat-cell *matCellDef="let element" style="text-align: center;">${{getCantReservas(element)[4]}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="roles">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;" [attr.rowspan]="2">Roles</th>
+    <td mat-cell *matCellDef="let element" style="text-align: center;">
+        <div>
+            <ul>
+                <li *ngFor="let rol of element.roles" style="list-style: none;">
+                    {{rol.name}}
+                    <button
+                      mat-raised-button
+                      (click)="removeRole(element.id,rol.id)"
+                      class="demo-button"
+                    >
+                    Quitar Rol
+                    </button>
+                </li>
+
+            </ul>
+        </div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="opciones">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;" [attr.rowspan]="2">Opciones</th>
+    <td mat-cell *matCellDef="let element">
+      <div class="demo-button-container">
+        <button
+          mat-raised-button
+          (click)="addRole(element.id)"
+          class="demo-button"
+        >
+          Agregar Nuevo Rol
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="removeUser(element.id)"
+          class="demo-button"
+        >
+          Eliminar Usuario
+        </button>
+      </div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="header-row-second-group">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;" [attr.colspan]="4"> Reservas </th>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['usuario','header-row-second-group','totalVentas','roles','opciones']"></tr>
+  <tr mat-header-row *matHeaderRowDef="['ingresadas', 'aprobadas', 'rechazadas', 'canceladas']"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+</table>

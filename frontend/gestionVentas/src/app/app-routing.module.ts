@@ -7,6 +7,7 @@ import { redireccionGuard } from './auth/guard/redireccion.guard';
 import { isNotAuthenticatedGuard } from './auth/guard/is-not-authenticated.guard';
 import { authGuard } from './auth/guard/auth.guard';
 import { ReportesComponent } from './reportes/reportes.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,12 @@ const routes: Routes = [
     canActivate: [authGuard],
     data: { roles: ['Admin', 'Vendedor', 'Comercial'] },
     component: ReservasComponent
+  },
+  {
+    path: 'usuarios',
+    canActivate: [authGuard],
+    data: { roles: ['Admin'] },
+    component: UsuariosComponent
   },
   {
     path: 'reportes',

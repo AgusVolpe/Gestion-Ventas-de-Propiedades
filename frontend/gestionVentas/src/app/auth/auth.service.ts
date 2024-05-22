@@ -79,14 +79,6 @@ export class AuthService {
     return this.http.get<any>(`${this.url}/Usuario/RolesWithUsuarios`, {headers});
   }
 
-  getReporte(): Observable<any>{
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-    });
-
-    return this.http.get<any>(`${this.url}/Usuario/ReporteVendedores`, {headers})
-  }
-
   getIdUsuario(): string | undefined{
     return this.currentUser()?.nameid;
   }
