@@ -55,17 +55,17 @@ public class UsuarioEndpoints : ICarterModule
         }).WithTags("Usuario")
           .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
 
-        app.MapPost("/{userId:Guid}/AddRole/{roleId:Guid}", (IUsuarioService usuarioService, Guid userId, Guid roleId) =>
+        app.MapPost("/{userId}/AddRole/{roleId}", (IUsuarioService usuarioService, string userId, string roleId) =>
         {
-            usuarioService.AddRoleToUser(roleId.ToString(), userId.ToString());
+            usuarioService.AddRoleToUser(roleId, userId);
 
             return Results.Ok("Rol asociado");
-        }).WithTags("Usuario")
-          .RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
-        
-        app.MapDelete("/{userId:Guid}/RemoveRole/{roleId:Guid}", (IUsuarioService usuarioService, Guid userId, Guid roleId) =>
+        }).WithTags("Usuario");
+          //.RequireAuthorization(new AuthorizeAttribute { Roles = "Admin" });
+
+        app.MapDelete("/{userId}/RemoveRole/{roleId}", (IUsuarioService usuarioService, string userId, string roleId) =>
         {
-            usuarioService.RemoveRoleToUser(roleId.ToString(), userId.ToString());
+            usuarioService.RemoveRoleToUser(roleId, userId);
 
             return Results.NoContent();
         }).WithTags("Usuario")

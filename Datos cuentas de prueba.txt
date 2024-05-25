@@ -1,0 +1,29 @@
+Usuario Administrador1:
+{
+  "email": "administrador1@email.com",
+  "password": "Administrador1!"
+}
+
+Usuario Comercial1:
+{
+  "email": "comercial1@email.com",
+  "password": "Comercial1!"
+}
+
+Usuario Vendedor1:
+{
+  "email": "vendedor1@email.com",
+  "password": "Vendedor1!"
+}
+
+Usuario Vendedor2:
+{
+  "email": "vendedor2@email.com",
+  "password": "Vendedor2!"
+}
+
+Usuario Vendedor3:
+{
+  "email": "vendedor3@email.com",
+  "password": "Vendedor3!"
+}

@@ -3,8 +3,15 @@
 }
 
 .login-form {
-  max-width: 400px;
+  border: 2px solid #0a0275;
+  border-radius: 5px;
   margin: 0 auto;
+  max-width: 264px;
+  padding: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .form-group {
@@ -13,12 +20,6 @@
 
 .label {
   display: block;
-}
-.form-control {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
 .input {
@@ -60,4 +61,6 @@
 
 .text-danger{
   color: red;
+  display: flex;
+  word-break: break-all;
 }

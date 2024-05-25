@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit{
-  title: string = 'GestionVentas';
+  title: string = 'GestiónVentas';
   isLoggedIn: boolean = false;
 
 

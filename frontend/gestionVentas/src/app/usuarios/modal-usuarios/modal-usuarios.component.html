@@ -1,1 +1,15 @@
-<p>modal-usuarios works!</p>
+<h2 mat-dialog-title class="mat-dialog-title">Agregar Nuevo Rol</h2>
+<mat-dialog-content >
+    <mat-form-field class="mat-form-field">
+        <mat-label>Roles</mat-label>
+        <mat-select [(ngModel)]="nuevoRol" required>
+            <mat-option *ngFor="let rol of roles" [value]="rol.id">
+                {{rol.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-dialog-actions class="demo-button">
+        <button mat-raised-button (click)="agregarRol()" cdkFocusInitial>Guardar</button>
+        <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
+    </mat-dialog-actions>
+</mat-dialog-content>

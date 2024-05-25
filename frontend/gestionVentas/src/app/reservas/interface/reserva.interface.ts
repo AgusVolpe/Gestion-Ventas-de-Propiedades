@@ -7,5 +7,5 @@ export interface Reserva{
     producto: Producto;
     usuario: Usuario;
     nombreCliente: string;
-    estado: EstadoReserva
+    estado: EstadoReserva;
 }

@@ -1,5 +1,6 @@
 .productos-title {
     text-align: center;
+    margin-top: 15px;
 }
 
 .demo-table {
@@ -8,11 +9,17 @@
 
 .demo-button-container {
     padding-bottom: 16px;
+    margin: 10px;
 }
 
 .demo-button {
-    margin-left: 8px;
-    margin-top: 10px;
+  margin-left: 8px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  display: inline-flex;
+  height: auto;
+  min-height: 40px;
+  text-align: center;
 }
 
 table {
@@ -61,4 +68,10 @@ table {
   
   .example-element-description-attribution {
     opacity: 0.5;
+  }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }

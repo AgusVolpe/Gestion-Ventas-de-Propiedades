@@ -40,12 +40,13 @@ public class ReservaEndoints : ICarterModule
           .RequireAuthorization(new AuthorizeAttribute { Roles = "Vendedor" });
 
 
-        app.MapPatch("/{idReserva:int}", async (IReservaService reservaService, int idReserva, [FromQuery] EstadoReserva estado) => {
+        app.MapPatch("/{idReserva:int}", async (IReservaService reservaService, int idReserva, [FromQuery] EstadoReserva estado) =>
+        {
             var reservaDTO = await reservaService.UpdateEstadoReserva(idReserva, estado);
 
             return Results.Ok(reservaDTO);
-        }).WithTags("Reserva")
-          .RequireAuthorization(new AuthorizeAttribute { Roles = "Vendedor, Comercial" });
+        }).WithTags("Reserva");
+          //.RequireAuthorization(new AuthorizeAttribute { Roles = "Vendedor, Comercial" });
 
 
         app.MapDelete("/{idReserva:int}", (IReservaService reservaService, int idReserva) =>

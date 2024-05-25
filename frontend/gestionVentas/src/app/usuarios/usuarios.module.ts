@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ModalUsuariosComponent } from './modal-usuarios/modal-usuarios.component';
 import { MaterialModule } from '../shared/material/material.module';
 import { UsuariosComponent } from './usuarios.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -14,6 +15,7 @@ import { UsuariosComponent } from './usuarios.component';
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
   ],
   exports: [
     UsuariosComponent, ModalUsuariosComponent

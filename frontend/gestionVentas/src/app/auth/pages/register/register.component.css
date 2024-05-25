@@ -3,8 +3,21 @@
 }
 
 .login-form {
-  max-width: 400px;
+  border: 2px solid #0a0275;
+  border-radius: 5px;
   margin: 0 auto;
+  max-width: 290px;
+  padding: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 400px){
+  .login-form{
+    width: 90%;
+  }
 }
 
 .form-group {

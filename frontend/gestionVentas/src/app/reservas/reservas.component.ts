@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 import { ReservasService } from './reservas.service';
 import { Reserva } from './interface/reserva.interface';
 import {animate, state, style, transition, trigger} from '@angular/animations';
@@ -7,6 +7,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalReservaComponent } from './modal-reserva/modal-reserva.component'; 
 import { AuthService } from '../auth/auth.service';
 import { EstadoReserva } from './interface/estadoReserva.enum';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-reservas',
@@ -20,17 +23,21 @@ import { EstadoReserva } from './interface/estadoReserva.enum';
     ]),
   ],
 })
-export class ReservasComponent implements OnInit, OnDestroy{
-  title: string = 'Seccion Reservas'
+export class ReservasComponent implements OnInit, OnDestroy, AfterViewInit{
+  title: string = 'Sección Reservas'
   
   subscription$!: Subscription;
   mostrarModal: boolean = false;
   private reservasService = inject(ReservasService);
   private authService = inject(AuthService);
   reservas: Reserva[] = [];
+  dataSource = new MatTableDataSource<Reserva>(this.reservas);
   reserva!: Reserva;
   estado!: EstadoReserva;
   columnsToDisplay: string[] = ['producto', 'usuario', 'nombreCliente', 'estado', 'opciones'];
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(public dialog: MatDialog) { }
   
@@ -42,10 +49,23 @@ export class ReservasComponent implements OnInit, OnDestroy{
     });
   }
   
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
   ngOnDestroy(): void {
     this.subscription$.unsubscribe();
   }
   
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
   estadoSegunNumero(estado: number): string | null {
     switch (estado) {
       case 0:
@@ -68,7 +88,8 @@ export class ReservasComponent implements OnInit, OnDestroy{
   getReservas(): void{
     this.reservasService.getReservas().subscribe({
       next: (reservas) => {
-        this.reservas = reservas;
+        // this.reservas = reservas;
+        this.dataSource.data = reservas;
       },
       error: (err) => {
         console.log(err);

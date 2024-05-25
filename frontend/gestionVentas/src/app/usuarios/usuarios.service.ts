@@ -43,12 +43,25 @@ export class UsuariosService {
     return this.http.get<any>(`${this.url}/Usuario/UsuariosWithRoles`, {headers});
   }
 
+  getRoles(): Observable<any>{
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+    });
+
+    return this.http.get<any>(`${this.url}/Usuario/RolesWithUsuarios`, {headers});
+  }
+
   addNewRoleToUser(userId: string, roleId: string): Observable<any>{
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
     });
 
-    return this.http.post<any>(`${this.url}/Usuario/${userId}/AddRole/${roleId}`, {headers});
+    return this.http.post<any>(`${this.url}/Usuario/${userId}/AddRole/${roleId}`, {headers})
+            .pipe(
+              tap(() => {
+                this._refresh$.next();
+              })
+              );
   }
   
   removeRoleToUser(userId: string, roleId: string): Observable<any>{
@@ -61,7 +74,7 @@ export class UsuariosService {
               tap(() => {
                 this._refresh$.next();
               })
-              );;
+              );
   }
 
   removeUser(userId: string): Observable<any>{

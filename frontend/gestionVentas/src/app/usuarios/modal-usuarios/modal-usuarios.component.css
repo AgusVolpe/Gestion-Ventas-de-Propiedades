@@ -1,0 +1,17 @@
+.mat-dialog-title {
+    text-align: center;
+}
+
+.demo-button {
+    align-items: center;
+    margin-left: 8px;
+    margin-top: 10px;
+    display: inline;
+    float: right;
+}
+
+.mat-form-field {
+    display: block !important;
+    position: relative;
+    text-align: left;
+}
